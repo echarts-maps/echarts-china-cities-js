@@ -55,3 +55,8 @@ if __name__ == '__main__':
     config_json = config.render(names=name_dict, registry=rendering_dict)
     with codecs.open(os.path.join('dist', 'config.json'), 'wb', 'utf-8') as f:
         f.write(config_json)
+
+    feature = jinja2_env.get_template('features.txt')
+    feature_txt = feature.render(names=name_dict, registry=rendering_dict)
+    with codecs.open(os.path.join('features.txt'), 'wb', 'utf-8') as f:
+        f.write(feature_txt)
