@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 import os
-import json
 import glob
 import shutil
 import pinyin
