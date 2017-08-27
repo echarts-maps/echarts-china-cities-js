@@ -1,0 +1,998 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Jupyter-Echarts Map Demo</title>
+    <meta charset="utf-8" />
+	<style>
+	  .citymap{
+	  width: 300px;
+	  height: 300px;
+	  }
+	</style>
+	<script src="echarts.min.js"></script>
+	<!-- 广西 -->
+	<script src="dist/guang3_xi1/bei3_hai3.js"></script>
+	<script src="dist/guang3_xi1/nan2_ning2.js"></script>
+	<script src="dist/guang3_xi1/chong2_zuo3.js"></script>
+	<script src="dist/guang3_xi1/lai2_bin1.js"></script>
+	<script src="dist/guang3_xi1/liu3_zhou1.js"></script>
+	<script src="dist/guang3_xi1/gui4_lin2.js"></script>
+	<script src="dist/guang3_xi1/wu2_zhou1.js"></script>
+	<script src="dist/guang3_xi1/he2_chi2.js"></script>
+	<script src="dist/guang3_xi1/yu4_lin2.js"></script>
+	<script src="dist/guang3_xi1/bai3_se4.js"></script>
+	<script src="dist/guang3_xi1/gui4_gang3.js"></script>
+	<script src="dist/guang3_xi1/he4_zhou1.js"></script>
+	<script src="dist/guang3_xi1/qin1_zhou1.js"></script>
+	<script src="dist/guang3_xi1/fang2_cheng2_gang3.js"></script>
+	<!-- 江西 -->
+	<script src="dist/jiang1_xi1/shang4_rao2.js"></script>
+	<script src="dist/jiang1_xi1/jiu3_jiang1.js"></script>
+	<script src="dist/jiang1_xi1/nan2_chang1.js"></script>
+	<script src="dist/jiang1_xi1/ji2_an1.js"></script>
+	<script src="dist/jiang1_xi1/yi2_chun1.js"></script>
+	<script src="dist/jiang1_xi1/fu3_zhou1.js"></script>
+	<script src="dist/jiang1_xi1/xin1_yu2.js"></script>
+	<script src="dist/jiang1_xi1/jing3_de2_zhen4.js"></script>
+	<script src="dist/jiang1_xi1/ping2_xiang1.js"></script>
+	<script src="dist/jiang1_xi1/gan4_zhou1.js"></script>
+	<script src="dist/jiang1_xi1/ying1_tan2.js"></script>
+	<!-- 黑龙江 -->
+	<script src="dist/hei1_long2_jiang1/qi1_tai2_he2.js"></script>
+	<script src="dist/hei1_long2_jiang1/yi1_chun1.js"></script>
+	<script src="dist/hei1_long2_jiang1/jia1_mu4_si1.js"></script>
+	<script src="dist/hei1_long2_jiang1/shuang1_ya1_shan1.js"></script>
+	<script src="dist/hei1_long2_jiang1/ha1_er3_bin1.js"></script>
+	<script src="dist/hei1_long2_jiang1/da4_xing1_an1_ling2_di4_qu1.js"></script>
+	<script src="dist/hei1_long2_jiang1/da4_qing4.js"></script>
+	<script src="dist/hei1_long2_jiang1/mu3_dan1_jiang1.js"></script>
+	<script src="dist/hei1_long2_jiang1/sui1_hua4.js"></script>
+	<script src="dist/hei1_long2_jiang1/ji1_xi1.js"></script>
+	<script src="dist/hei1_long2_jiang1/he4_gang3.js"></script>
+	<script src="dist/hei1_long2_jiang1/hei1_he2.js"></script>
+	<script src="dist/hei1_long2_jiang1/qi2_qi2_ha1_er3.js"></script>
+	<!-- 广东 -->
+	<script src="dist/guang3_dong1/yun2_fu2.js"></script>
+	<script src="dist/guang3_dong1/fo2_shan1.js"></script>
+	<script src="dist/guang3_dong1/guang3_zhou1.js"></script>
+	<script src="dist/guang3_dong1/hui4_zhou1.js"></script>
+	<script src="dist/guang3_dong1/jie1_yang2.js"></script>
+	<script src="dist/guang3_dong1/mei2_zhou1.js"></script>
+	<script src="dist/guang3_dong1/shan4_tou2.js"></script>
+	<script src="dist/guang3_dong1/shan4_wei3.js"></script>
+	<script src="dist/guang3_dong1/jiang1_men2.js"></script>
+	<script src="dist/guang3_dong1/he2_yuan2.js"></script>
+	<script src="dist/guang3_dong1/shen1_zhen4.js"></script>
+	<script src="dist/guang3_dong1/qing1_yuan3.js"></script>
+	<script src="dist/guang3_dong1/zhan4_jiang1.js"></script>
+	<script src="dist/guang3_dong1/chao2_zhou1.js"></script>
+	<script src="dist/guang3_dong1/zhu1_hai3.js"></script>
+	<script src="dist/guang3_dong1/zhao4_qing4.js"></script>
+	<script src="dist/guang3_dong1/mao4_ming2.js"></script>
+	<script src="dist/guang3_dong1/yang2_jiang1.js"></script>
+	<script src="dist/guang3_dong1/shao2_guan1.js"></script>
+	<!-- 安徽 -->
+	<script src="dist/an1_hui1/bo2_zhou1.js"></script>
+	<script src="dist/an1_hui1/liu4_an1.js"></script>
+	<script src="dist/an1_hui1/he2_fei2.js"></script>
+	<script src="dist/an1_hui1/an1_qing4.js"></script>
+	<script src="dist/an1_hui1/xuan1_cheng2.js"></script>
+	<script src="dist/an1_hui1/su4_zhou1.js"></script>
+	<script src="dist/an1_hui1/chi2_zhou1.js"></script>
+	<script src="dist/an1_hui1/huai2_bei3.js"></script>
+	<script src="dist/an1_hui1/huai2_nan2.js"></script>
+	<script src="dist/an1_hui1/chu2_zhou1.js"></script>
+	<script src="dist/an1_hui1/wu2_hu2.js"></script>
+	<script src="dist/an1_hui1/bang4_bu4.js"></script>
+	<script src="dist/an1_hui1/tong2_ling2.js"></script>
+	<script src="dist/an1_hui1/fu4_yang2.js"></script>
+	<script src="dist/an1_hui1/ma3_an1_shan1.js"></script>
+	<script src="dist/an1_hui1/huang2_shan1.js"></script>
+	<!-- 内蒙古 -->
+	<script src="dist/nei4_meng2_gu3/wu1_lan2_cha2_bu4.js"></script>
+	<script src="dist/nei4_meng2_gu3/wu1_hai3.js"></script>
+	<script src="dist/nei4_meng2_gu3/xing1_an1_meng2.js"></script>
+	<script src="dist/nei4_meng2_gu3/bao1_tou2.js"></script>
+	<script src="dist/nei4_meng2_gu3/hu1_lun2_bei4_er3.js"></script>
+	<script src="dist/nei4_meng2_gu3/hu1_he2_hao4_te4.js"></script>
+	<script src="dist/nei4_meng2_gu3/ba1_yan4_nao4_er3.js"></script>
+	<script src="dist/nei4_meng2_gu3/chi4_feng1.js"></script>
+	<script src="dist/nei4_meng2_gu3/tong1_liao2.js"></script>
+	<script src="dist/nei4_meng2_gu3/e4_er3_duo1_si1.js"></script>
+	<script src="dist/nei4_meng2_gu3/xi2_lin2_guo1_le4_meng2.js"></script>
+	<script src="dist/nei4_meng2_gu3/a1_la1_shan4_meng2.js"></script>
+	<!-- 吉林 -->
+	<script src="dist/ji2_lin2/ji2_lin2.js"></script>
+	<script src="dist/ji2_lin2/si4_ping2.js"></script>
+	<script src="dist/ji2_lin2/yan2_bian1_zhao1_xian1_zu2_zi4_zhi4_zhou1.js"></script>
+	<script src="dist/ji2_lin2/song1_yuan2.js"></script>
+	<script src="dist/ji2_lin2/bai2_cheng2.js"></script>
+	<script src="dist/ji2_lin2/bai2_shan1.js"></script>
+	<script src="dist/ji2_lin2/liao2_yuan2.js"></script>
+	<script src="dist/ji2_lin2/tong1_hua4.js"></script>
+	<script src="dist/ji2_lin2/chang2_chun1.js"></script>
+	<!-- 河南 -->
+	<script src="dist/he2_nan2/san1_men2_xia2.js"></script>
+	<script src="dist/he2_nan2/xin4_yang2.js"></script>
+	<script src="dist/he2_nan2/nan2_yang2.js"></script>
+	<script src="dist/he2_nan2/zhou1_kou3.js"></script>
+	<script src="dist/he2_nan2/shang1_qiu1.js"></script>
+	<script src="dist/he2_nan2/an1_yang2.js"></script>
+	<script src="dist/he2_nan2/ping2_ding3_shan1.js"></script>
+	<script src="dist/he2_nan2/kai1_feng1.js"></script>
+	<script src="dist/he2_nan2/xin1_xiang1.js"></script>
+	<script src="dist/he2_nan2/luo4_yang2.js"></script>
+	<script src="dist/he2_nan2/ta4_he2.js"></script>
+	<script src="dist/he2_nan2/pu2_yang2.js"></script>
+	<script src="dist/he2_nan2/jiao1_zuo4.js"></script>
+	<script src="dist/he2_nan2/xu3_chang1.js"></script>
+	<script src="dist/he2_nan2/zheng4_zhou1.js"></script>
+	<script src="dist/he2_nan2/zhu4_ma3_dian4.js"></script>
+	<script src="dist/he2_nan2/he4_bi4.js"></script>
+	<!-- 海南 -->
+	<script src="dist/hai3_nan2/wan4_ning2.js"></script>
+	<script src="dist/hai3_nan2/san1_ya4.js"></script>
+	<script src="dist/hai3_nan2/san1_sha1.js"></script>
+	<script src="dist/hai3_nan2/dong1_fang1.js"></script>
+	<script src="dist/hai3_nan2/lin2_gao1_xian4.js"></script>
+	<script src="dist/hai3_nan2/le4_dong1_li2_zu2_zi4_zhi4_xian4.js"></script>
+	<script src="dist/hai3_nan2/wu3_zhi3_shan1.js"></script>
+	<script src="dist/hai3_nan2/bao3_ting2_li2_zu2_miao2_zu2_zi4_zhi4_xian4.js"></script>
+	<script src="dist/hai3_nan2/dan1_zhou1.js"></script>
+	<script src="dist/hai3_nan2/ding4_an1_xian4.js"></script>
+	<script src="dist/hai3_nan2/tun2_chang1_xian4.js"></script>
+	<script src="dist/hai3_nan2/wen2_chang1.js"></script>
+	<script src="dist/hai3_nan2/chang1_jiang1_li2_zu2_zi4_zhi4_xian4.js"></script>
+	<script src="dist/hai3_nan2/hai3_kou3.js"></script>
+	<script src="dist/hai3_nan2/cheng2_mai4_xian4.js"></script>
+	<script src="dist/hai3_nan2/qiong2_zhong1_li2_zu2_miao2_zu2_zi4_zhi4_xian4.js"></script>
+	<script src="dist/hai3_nan2/qiong2_hai3.js"></script>
+	<script src="dist/hai3_nan2/bai2_sha1_li2_zu2_zi4_zhi4_xian4.js"></script>
+	<script src="dist/hai3_nan2/ling2_shui3_li2_zu2_zi4_zhi4_xian4.js"></script>
+	<!-- 河北 -->
+	<script src="dist/he2_bei3/bao3_ding4.js"></script>
+	<script src="dist/he2_bei3/tang2_shan1.js"></script>
+	<script src="dist/he2_bei3/lang2_fang1.js"></script>
+	<script src="dist/he2_bei3/zhang1_jia1_kou3.js"></script>
+	<script src="dist/he2_bei3/cheng2_de2.js"></script>
+	<script src="dist/he2_bei3/shi2_jia1_zhuang1.js"></script>
+	<script src="dist/he2_bei3/qin2_huang2_dao3.js"></script>
+	<script src="dist/he2_bei3/heng2_shui3.js"></script>
+	<script src="dist/he2_bei3/xing2_tai2.js"></script>
+	<script src="dist/he2_bei3/han2_dan1.js"></script>
+	<!-- 山东 -->
+	<script src="dist/shan1_dong1/dong1_ying2.js"></script>
+	<script src="dist/shan1_dong1/lin2_yi2.js"></script>
+	<script src="dist/shan1_dong1/wei1_hai3.js"></script>
+	<script src="dist/shan1_dong1/de2_zhou1.js"></script>
+	<script src="dist/shan1_dong1/ri4_zhao4.js"></script>
+	<script src="dist/shan1_dong1/zao3_zhuang1.js"></script>
+	<script src="dist/shan1_dong1/tai4_an1.js"></script>
+	<script src="dist/shan1_dong1/ji4_nan2.js"></script>
+	<script src="dist/shan1_dong1/ji4_ning2.js"></script>
+	<script src="dist/shan1_dong1/zi1_bo2.js"></script>
+	<script src="dist/shan1_dong1/bin1_zhou1.js"></script>
+	<script src="dist/shan1_dong1/wei2_fang1.js"></script>
+	<script src="dist/shan1_dong1/yan1_tai2.js"></script>
+	<script src="dist/shan1_dong1/liao2_cheng2.js"></script>
+	<script src="dist/shan1_dong1/lai2_wu2.js"></script>
+	<script src="dist/shan1_dong1/he2_ze2.js"></script>
+	<script src="dist/shan1_dong1/qing1_dao3.js"></script>
+	<!-- 山西 -->
+	<script src="dist/shan1_xi1/lin2_fen2.js"></script>
+	<script src="dist/shan1_xi1/lv3_liang2.js"></script>
+	<script src="dist/shan1_xi1/da4_tong2.js"></script>
+	<script src="dist/shan1_xi1/tai4_yuan2.js"></script>
+	<script src="dist/shan1_xi1/xin1_zhou1.js"></script>
+	<script src="dist/shan1_xi1/jin4_zhong1.js"></script>
+	<script src="dist/shan1_xi1/jin4_cheng2.js"></script>
+	<script src="dist/shan1_xi1/shuo4_zhou1.js"></script>
+	<script src="dist/shan1_xi1/yun4_cheng2.js"></script>
+	<script src="dist/shan1_xi1/chang2_zhi4.js"></script>
+	<script src="dist/shan1_xi1/yang2_quan2.js"></script>
+	<!-- 江苏 -->
+	<script src="dist/jiang1_su1/nan2_jing1.js"></script>
+	<script src="dist/jiang1_su1/nan2_tong1.js"></script>
+	<script src="dist/jiang1_su1/su4_qian1.js"></script>
+	<script src="dist/jiang1_su1/chang2_zhou1.js"></script>
+	<script src="dist/jiang1_su1/xu2_zhou1.js"></script>
+	<script src="dist/jiang1_su1/yang2_zhou1.js"></script>
+	<script src="dist/jiang1_su1/wu2_xi2.js"></script>
+	<script src="dist/jiang1_su1/tai4_zhou1.js"></script>
+	<script src="dist/jiang1_su1/huai2_an1.js"></script>
+	<script src="dist/jiang1_su1/yan2_cheng2.js"></script>
+	<script src="dist/jiang1_su1/su1_zhou1.js"></script>
+	<script src="dist/jiang1_su1/lian2_yun2_gang3.js"></script>
+	<script src="dist/jiang1_su1/zhen4_jiang1.js"></script>
+	<!-- 辽宁 -->
+	<script src="dist/liao2_ning2/dan1_dong1.js"></script>
+	<script src="dist/liao2_ning2/da4_lian2.js"></script>
+	<script src="dist/liao2_ning2/fu3_shun4.js"></script>
+	<script src="dist/liao2_ning2/zhao1_yang2.js"></script>
+	<script src="dist/liao2_ning2/ben3_xi1.js"></script>
+	<script src="dist/liao2_ning2/shen3_yang2.js"></script>
+	<script src="dist/liao2_ning2/pan2_jin3.js"></script>
+	<script src="dist/liao2_ning2/ying2_kou3.js"></script>
+	<script src="dist/liao2_ning2/hu2_lu2_dao3.js"></script>
+	<script src="dist/liao2_ning2/liao2_yang2.js"></script>
+	<script src="dist/liao2_ning2/tie3_ling2.js"></script>
+	<script src="dist/liao2_ning2/jin3_zhou1.js"></script>
+	<script src="dist/liao2_ning2/fu4_xin1.js"></script>
+	<script src="dist/liao2_ning2/an1_shan1.js"></script>
+	<!-- 四川 -->
+	<script src="dist/si4_chuan1/le4_shan1.js"></script>
+	<script src="dist/si4_chuan1/nei4_jiang1.js"></script>
+	<script src="dist/si4_chuan1/liang2_shan1_yi2_zu2_zi4_zhi4_zhou1.js"></script>
+	<script src="dist/si4_chuan1/nan2_chong1.js"></script>
+	<script src="dist/si4_chuan1/yi2_bin1.js"></script>
+	<script src="dist/si4_chuan1/ba1_zhong1.js"></script>
+	<script src="dist/si4_chuan1/guang3_yuan2.js"></script>
+	<script src="dist/si4_chuan1/guang3_an1.js"></script>
+	<script src="dist/si4_chuan1/de2_yang2.js"></script>
+	<script src="dist/si4_chuan1/cheng2_du1.js"></script>
+	<script src="dist/si4_chuan1/pan1_zhi1_hua1.js"></script>
+	<script src="dist/si4_chuan1/lu2_zhou1.js"></script>
+	<script src="dist/si4_chuan1/gan1_zi1_cang2_zu2_zi4_zhi4_zhou1.js"></script>
+	<script src="dist/si4_chuan1/mei2_shan1.js"></script>
+	<script src="dist/si4_chuan1/mian2_yang2.js"></script>
+	<script src="dist/si4_chuan1/zi4_gong4.js"></script>
+	<script src="dist/si4_chuan1/zi1_yang2.js"></script>
+	<script src="dist/si4_chuan1/da2_zhou1.js"></script>
+	<script src="dist/si4_chuan1/sui4_ning2.js"></script>
+	<script src="dist/si4_chuan1/a1_ba4_cang2_zu2_qiang1_zu2_zi4_zhi4_zhou1.js"></script>
+	<script src="dist/si4_chuan1/ya3_an1.js"></script>
+	<!-- 浙江 -->
+	<script src="dist/zhe4_jiang1/li4_shui3.js"></script>
+	<script src="dist/zhe4_jiang1/tai2_zhou1.js"></script>
+	<script src="dist/zhe4_jiang1/jia1_xing1.js"></script>
+	<script src="dist/zhe4_jiang1/ning2_bo1.js"></script>
+	<script src="dist/zhe4_jiang1/hang2_zhou1.js"></script>
+	<script src="dist/zhe4_jiang1/wen1_zhou1.js"></script>
+	<script src="dist/zhe4_jiang1/hu2_zhou1.js"></script>
+	<script src="dist/zhe4_jiang1/shao4_xing1.js"></script>
+	<script src="dist/zhe4_jiang1/zhou1_shan1.js"></script>
+	<script src="dist/zhe4_jiang1/qu2_zhou1.js"></script>
+	<script src="dist/zhe4_jiang1/jin1_hua2.js"></script>
+	<!-- 湖北 -->
+	<script src="dist/hu2_bei3/shi2_yan4.js"></script>
+	<script src="dist/hu2_bei3/xian2_ning2.js"></script>
+	<script src="dist/hu2_bei3/xiao4_gan3.js"></script>
+	<script src="dist/hu2_bei3/yi2_chang1.js"></script>
+	<script src="dist/hu2_bei3/en1_shi1_tu3_jia1_zu2_miao2_zu2_zi4_zhi4_zhou1.js"></script>
+	<script src="dist/hu2_bei3/wu3_han4.js"></script>
+	<script src="dist/hu2_bei3/jing1_zhou1.js"></script>
+	<script src="dist/hu2_bei3/jing1_men2.js"></script>
+	<script src="dist/hu2_bei3/xiang1_yang2.js"></script>
+	<script src="dist/hu2_bei3/e4_zhou1.js"></script>
+	<script src="dist/hu2_bei3/sui2_zhou1.js"></script>
+	<script src="dist/hu2_bei3/huang2_gang1.js"></script>
+	<script src="dist/hu2_bei3/huang2_shi2.js"></script>
+	<!-- 湖南 -->
+	<script src="dist/hu2_nan2/lou2_di3.js"></script>
+	<script src="dist/hu2_nan2/yue4_yang2.js"></script>
+	<script src="dist/hu2_nan2/chang2_de2.js"></script>
+	<script src="dist/hu2_nan2/zhang1_jia1_jie4.js"></script>
+	<script src="dist/hu2_nan2/huai2_hua4.js"></script>
+	<script src="dist/hu2_nan2/zhu1_zhou1.js"></script>
+	<script src="dist/hu2_nan2/yong3_zhou1.js"></script>
+	<script src="dist/hu2_nan2/xiang1_tan2.js"></script>
+	<script src="dist/hu2_nan2/xiang1_xi1_tu3_jia1_zu2_miao2_zu2_zi4_zhi4_zhou1.js"></script>
+	<script src="dist/hu2_nan2/yi4_yang2.js"></script>
+	<script src="dist/hu2_nan2/heng2_yang2.js"></script>
+	<script src="dist/hu2_nan2/shao4_yang2.js"></script>
+	<script src="dist/hu2_nan2/chen1_zhou1.js"></script>
+	<script src="dist/hu2_nan2/chang2_sha1.js"></script>
+	<!-- 福建 -->
+	<script src="dist/fu2_jian4/san1_ming2.js"></script>
+	<script src="dist/fu2_jian4/nan2_ping2.js"></script>
+	<script src="dist/fu2_jian4/sha4_men2.js"></script>
+	<script src="dist/fu2_jian4/ning2_de2.js"></script>
+	<script src="dist/fu2_jian4/quan2_zhou1.js"></script>
+	<script src="dist/fu2_jian4/zhang1_zhou1.js"></script>
+	<script src="dist/fu2_jian4/fu2_zhou1.js"></script>
+	<script src="dist/fu2_jian4/fu3_tian2.js"></script>
+	<script src="dist/fu2_jian4/long2_yan2.js"></script>
+</head>
+<body>
+  <h2>广西 - guang3_xi1</h2>
+  <table>
+	<tr>
+	  <td><div id="bei3_hai3" class="citymap"></div></td>
+	  <td><div id="nan2_ning2" class="citymap"></div></td>
+	  <td><div id="chong2_zuo3" class="citymap"></div></td>
+	  <td><div id="lai2_bin1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="liu3_zhou1" class="citymap"></div></td>
+	  <td><div id="gui4_lin2" class="citymap"></div></td>
+	  <td><div id="wu2_zhou1" class="citymap"></div></td>
+	  <td><div id="he2_chi2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="yu4_lin2" class="citymap"></div></td>
+	  <td><div id="bai3_se4" class="citymap"></div></td>
+	  <td><div id="gui4_gang3" class="citymap"></div></td>
+	  <td><div id="he4_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="qin1_zhou1" class="citymap"></div></td>
+	  <td><div id="fang2_cheng2_gang3" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>江西 - jiang1_xi1</h2>
+  <table>
+	<tr>
+	  <td><div id="shang4_rao2" class="citymap"></div></td>
+	  <td><div id="jiu3_jiang1" class="citymap"></div></td>
+	  <td><div id="nan2_chang1" class="citymap"></div></td>
+	  <td><div id="ji2_an1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="yi2_chun1" class="citymap"></div></td>
+	  <td><div id="fu3_zhou1" class="citymap"></div></td>
+	  <td><div id="xin1_yu2" class="citymap"></div></td>
+	  <td><div id="jing3_de2_zhen4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="ping2_xiang1" class="citymap"></div></td>
+	  <td><div id="gan4_zhou1" class="citymap"></div></td>
+	  <td><div id="ying1_tan2" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>黑龙江 - hei1_long2_jiang1</h2>
+  <table>
+	<tr>
+	  <td><div id="qi1_tai2_he2" class="citymap"></div></td>
+	  <td><div id="yi1_chun1" class="citymap"></div></td>
+	  <td><div id="jia1_mu4_si1" class="citymap"></div></td>
+	  <td><div id="shuang1_ya1_shan1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="ha1_er3_bin1" class="citymap"></div></td>
+	  <td><div id="da4_xing1_an1_ling2_di4_qu1" class="citymap"></div></td>
+	  <td><div id="da4_qing4" class="citymap"></div></td>
+	  <td><div id="mu3_dan1_jiang1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="sui1_hua4" class="citymap"></div></td>
+	  <td><div id="ji1_xi1" class="citymap"></div></td>
+	  <td><div id="he4_gang3" class="citymap"></div></td>
+	  <td><div id="hei1_he2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="qi2_qi2_ha1_er3" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>广东 - guang3_dong1</h2>
+  <table>
+	<tr>
+	  <td><div id="yun2_fu2" class="citymap"></div></td>
+	  <td><div id="fo2_shan1" class="citymap"></div></td>
+	  <td><div id="guang3_zhou1" class="citymap"></div></td>
+	  <td><div id="hui4_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="jie1_yang2" class="citymap"></div></td>
+	  <td><div id="mei2_zhou1" class="citymap"></div></td>
+	  <td><div id="shan4_tou2" class="citymap"></div></td>
+	  <td><div id="shan4_wei3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="jiang1_men2" class="citymap"></div></td>
+	  <td><div id="he2_yuan2" class="citymap"></div></td>
+	  <td><div id="shen1_zhen4" class="citymap"></div></td>
+	  <td><div id="qing1_yuan3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="zhan4_jiang1" class="citymap"></div></td>
+	  <td><div id="chao2_zhou1" class="citymap"></div></td>
+	  <td><div id="zhu1_hai3" class="citymap"></div></td>
+	  <td><div id="zhao4_qing4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="mao4_ming2" class="citymap"></div></td>
+	  <td><div id="yang2_jiang1" class="citymap"></div></td>
+	  <td><div id="shao2_guan1" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>安徽 - an1_hui1</h2>
+  <table>
+	<tr>
+	  <td><div id="bo2_zhou1" class="citymap"></div></td>
+	  <td><div id="liu4_an1" class="citymap"></div></td>
+	  <td><div id="he2_fei2" class="citymap"></div></td>
+	  <td><div id="an1_qing4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="xuan1_cheng2" class="citymap"></div></td>
+	  <td><div id="su4_zhou1" class="citymap"></div></td>
+	  <td><div id="chi2_zhou1" class="citymap"></div></td>
+	  <td><div id="huai2_bei3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="huai2_nan2" class="citymap"></div></td>
+	  <td><div id="chu2_zhou1" class="citymap"></div></td>
+	  <td><div id="wu2_hu2" class="citymap"></div></td>
+	  <td><div id="bang4_bu4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="tong2_ling2" class="citymap"></div></td>
+	  <td><div id="fu4_yang2" class="citymap"></div></td>
+	  <td><div id="ma3_an1_shan1" class="citymap"></div></td>
+	  <td><div id="huang2_shan1" class="citymap"></div></td>
+	  </tr><tr>
+	</tr>
+  </table>
+  <h2>内蒙古 - nei4_meng2_gu3</h2>
+  <table>
+	<tr>
+	  <td><div id="wu1_lan2_cha2_bu4" class="citymap"></div></td>
+	  <td><div id="wu1_hai3" class="citymap"></div></td>
+	  <td><div id="xing1_an1_meng2" class="citymap"></div></td>
+	  <td><div id="bao1_tou2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="hu1_lun2_bei4_er3" class="citymap"></div></td>
+	  <td><div id="hu1_he2_hao4_te4" class="citymap"></div></td>
+	  <td><div id="ba1_yan4_nao4_er3" class="citymap"></div></td>
+	  <td><div id="chi4_feng1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="tong1_liao2" class="citymap"></div></td>
+	  <td><div id="e4_er3_duo1_si1" class="citymap"></div></td>
+	  <td><div id="xi2_lin2_guo1_le4_meng2" class="citymap"></div></td>
+	  <td><div id="a1_la1_shan4_meng2" class="citymap"></div></td>
+	  </tr><tr>
+	</tr>
+  </table>
+  <h2>吉林 - ji2_lin2</h2>
+  <table>
+	<tr>
+	  <td><div id="ji2_lin2" class="citymap"></div></td>
+	  <td><div id="si4_ping2" class="citymap"></div></td>
+	  <td><div id="yan2_bian1_zhao1_xian1_zu2_zi4_zhi4_zhou1" class="citymap"></div></td>
+	  <td><div id="song1_yuan2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="bai2_cheng2" class="citymap"></div></td>
+	  <td><div id="bai2_shan1" class="citymap"></div></td>
+	  <td><div id="liao2_yuan2" class="citymap"></div></td>
+	  <td><div id="tong1_hua4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="chang2_chun1" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>河南 - he2_nan2</h2>
+  <table>
+	<tr>
+	  <td><div id="san1_men2_xia2" class="citymap"></div></td>
+	  <td><div id="xin4_yang2" class="citymap"></div></td>
+	  <td><div id="nan2_yang2" class="citymap"></div></td>
+	  <td><div id="zhou1_kou3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="shang1_qiu1" class="citymap"></div></td>
+	  <td><div id="an1_yang2" class="citymap"></div></td>
+	  <td><div id="ping2_ding3_shan1" class="citymap"></div></td>
+	  <td><div id="kai1_feng1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="xin1_xiang1" class="citymap"></div></td>
+	  <td><div id="luo4_yang2" class="citymap"></div></td>
+	  <td><div id="ta4_he2" class="citymap"></div></td>
+	  <td><div id="pu2_yang2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="jiao1_zuo4" class="citymap"></div></td>
+	  <td><div id="xu3_chang1" class="citymap"></div></td>
+	  <td><div id="zheng4_zhou1" class="citymap"></div></td>
+	  <td><div id="zhu4_ma3_dian4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="he4_bi4" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>海南 - hai3_nan2</h2>
+  <table>
+	<tr>
+	  <td><div id="wan4_ning2" class="citymap"></div></td>
+	  <td><div id="san1_ya4" class="citymap"></div></td>
+	  <td><div id="san1_sha1" class="citymap"></div></td>
+	  <td><div id="dong1_fang1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="lin2_gao1_xian4" class="citymap"></div></td>
+	  <td><div id="le4_dong1_li2_zu2_zi4_zhi4_xian4" class="citymap"></div></td>
+	  <td><div id="wu3_zhi3_shan1" class="citymap"></div></td>
+	  <td><div id="bao3_ting2_li2_zu2_miao2_zu2_zi4_zhi4_xian4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="dan1_zhou1" class="citymap"></div></td>
+	  <td><div id="ding4_an1_xian4" class="citymap"></div></td>
+	  <td><div id="tun2_chang1_xian4" class="citymap"></div></td>
+	  <td><div id="wen2_chang1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="chang1_jiang1_li2_zu2_zi4_zhi4_xian4" class="citymap"></div></td>
+	  <td><div id="hai3_kou3" class="citymap"></div></td>
+	  <td><div id="cheng2_mai4_xian4" class="citymap"></div></td>
+	  <td><div id="qiong2_zhong1_li2_zu2_miao2_zu2_zi4_zhi4_xian4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="qiong2_hai3" class="citymap"></div></td>
+	  <td><div id="bai2_sha1_li2_zu2_zi4_zhi4_xian4" class="citymap"></div></td>
+	  <td><div id="ling2_shui3_li2_zu2_zi4_zhi4_xian4" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>河北 - he2_bei3</h2>
+  <table>
+	<tr>
+	  <td><div id="bao3_ding4" class="citymap"></div></td>
+	  <td><div id="tang2_shan1" class="citymap"></div></td>
+	  <td><div id="lang2_fang1" class="citymap"></div></td>
+	  <td><div id="zhang1_jia1_kou3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="cheng2_de2" class="citymap"></div></td>
+	  <td><div id="shi2_jia1_zhuang1" class="citymap"></div></td>
+	  <td><div id="qin2_huang2_dao3" class="citymap"></div></td>
+	  <td><div id="heng2_shui3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="xing2_tai2" class="citymap"></div></td>
+	  <td><div id="han2_dan1" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>山东 - shan1_dong1</h2>
+  <table>
+	<tr>
+	  <td><div id="dong1_ying2" class="citymap"></div></td>
+	  <td><div id="lin2_yi2" class="citymap"></div></td>
+	  <td><div id="wei1_hai3" class="citymap"></div></td>
+	  <td><div id="de2_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="ri4_zhao4" class="citymap"></div></td>
+	  <td><div id="zao3_zhuang1" class="citymap"></div></td>
+	  <td><div id="tai4_an1" class="citymap"></div></td>
+	  <td><div id="ji4_nan2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="ji4_ning2" class="citymap"></div></td>
+	  <td><div id="zi1_bo2" class="citymap"></div></td>
+	  <td><div id="bin1_zhou1" class="citymap"></div></td>
+	  <td><div id="wei2_fang1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="yan1_tai2" class="citymap"></div></td>
+	  <td><div id="liao2_cheng2" class="citymap"></div></td>
+	  <td><div id="lai2_wu2" class="citymap"></div></td>
+	  <td><div id="he2_ze2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="qing1_dao3" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>山西 - shan1_xi1</h2>
+  <table>
+	<tr>
+	  <td><div id="lin2_fen2" class="citymap"></div></td>
+	  <td><div id="lv3_liang2" class="citymap"></div></td>
+	  <td><div id="da4_tong2" class="citymap"></div></td>
+	  <td><div id="tai4_yuan2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="xin1_zhou1" class="citymap"></div></td>
+	  <td><div id="jin4_zhong1" class="citymap"></div></td>
+	  <td><div id="jin4_cheng2" class="citymap"></div></td>
+	  <td><div id="shuo4_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="yun4_cheng2" class="citymap"></div></td>
+	  <td><div id="chang2_zhi4" class="citymap"></div></td>
+	  <td><div id="yang2_quan2" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>江苏 - jiang1_su1</h2>
+  <table>
+	<tr>
+	  <td><div id="nan2_jing1" class="citymap"></div></td>
+	  <td><div id="nan2_tong1" class="citymap"></div></td>
+	  <td><div id="su4_qian1" class="citymap"></div></td>
+	  <td><div id="chang2_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="xu2_zhou1" class="citymap"></div></td>
+	  <td><div id="yang2_zhou1" class="citymap"></div></td>
+	  <td><div id="wu2_xi2" class="citymap"></div></td>
+	  <td><div id="tai4_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="huai2_an1" class="citymap"></div></td>
+	  <td><div id="yan2_cheng2" class="citymap"></div></td>
+	  <td><div id="su1_zhou1" class="citymap"></div></td>
+	  <td><div id="lian2_yun2_gang3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="zhen4_jiang1" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>辽宁 - liao2_ning2</h2>
+  <table>
+	<tr>
+	  <td><div id="dan1_dong1" class="citymap"></div></td>
+	  <td><div id="da4_lian2" class="citymap"></div></td>
+	  <td><div id="fu3_shun4" class="citymap"></div></td>
+	  <td><div id="zhao1_yang2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="ben3_xi1" class="citymap"></div></td>
+	  <td><div id="shen3_yang2" class="citymap"></div></td>
+	  <td><div id="pan2_jin3" class="citymap"></div></td>
+	  <td><div id="ying2_kou3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="hu2_lu2_dao3" class="citymap"></div></td>
+	  <td><div id="liao2_yang2" class="citymap"></div></td>
+	  <td><div id="tie3_ling2" class="citymap"></div></td>
+	  <td><div id="jin3_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="fu4_xin1" class="citymap"></div></td>
+	  <td><div id="an1_shan1" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>四川 - si4_chuan1</h2>
+  <table>
+	<tr>
+	  <td><div id="le4_shan1" class="citymap"></div></td>
+	  <td><div id="nei4_jiang1" class="citymap"></div></td>
+	  <td><div id="liang2_shan1_yi2_zu2_zi4_zhi4_zhou1" class="citymap"></div></td>
+	  <td><div id="nan2_chong1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="yi2_bin1" class="citymap"></div></td>
+	  <td><div id="ba1_zhong1" class="citymap"></div></td>
+	  <td><div id="guang3_yuan2" class="citymap"></div></td>
+	  <td><div id="guang3_an1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="de2_yang2" class="citymap"></div></td>
+	  <td><div id="cheng2_du1" class="citymap"></div></td>
+	  <td><div id="pan1_zhi1_hua1" class="citymap"></div></td>
+	  <td><div id="lu2_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="gan1_zi1_cang2_zu2_zi4_zhi4_zhou1" class="citymap"></div></td>
+	  <td><div id="mei2_shan1" class="citymap"></div></td>
+	  <td><div id="mian2_yang2" class="citymap"></div></td>
+	  <td><div id="zi4_gong4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="zi1_yang2" class="citymap"></div></td>
+	  <td><div id="da2_zhou1" class="citymap"></div></td>
+	  <td><div id="sui4_ning2" class="citymap"></div></td>
+	  <td><div id="a1_ba4_cang2_zu2_qiang1_zu2_zi4_zhi4_zhou1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="ya3_an1" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>浙江 - zhe4_jiang1</h2>
+  <table>
+	<tr>
+	  <td><div id="li4_shui3" class="citymap"></div></td>
+	  <td><div id="tai2_zhou1" class="citymap"></div></td>
+	  <td><div id="jia1_xing1" class="citymap"></div></td>
+	  <td><div id="ning2_bo1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="hang2_zhou1" class="citymap"></div></td>
+	  <td><div id="wen1_zhou1" class="citymap"></div></td>
+	  <td><div id="hu2_zhou1" class="citymap"></div></td>
+	  <td><div id="shao4_xing1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="zhou1_shan1" class="citymap"></div></td>
+	  <td><div id="qu2_zhou1" class="citymap"></div></td>
+	  <td><div id="jin1_hua2" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>湖北 - hu2_bei3</h2>
+  <table>
+	<tr>
+	  <td><div id="shi2_yan4" class="citymap"></div></td>
+	  <td><div id="xian2_ning2" class="citymap"></div></td>
+	  <td><div id="xiao4_gan3" class="citymap"></div></td>
+	  <td><div id="yi2_chang1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="en1_shi1_tu3_jia1_zu2_miao2_zu2_zi4_zhi4_zhou1" class="citymap"></div></td>
+	  <td><div id="wu3_han4" class="citymap"></div></td>
+	  <td><div id="jing1_zhou1" class="citymap"></div></td>
+	  <td><div id="jing1_men2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="xiang1_yang2" class="citymap"></div></td>
+	  <td><div id="e4_zhou1" class="citymap"></div></td>
+	  <td><div id="sui2_zhou1" class="citymap"></div></td>
+	  <td><div id="huang2_gang1" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="huang2_shi2" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>湖南 - hu2_nan2</h2>
+  <table>
+	<tr>
+	  <td><div id="lou2_di3" class="citymap"></div></td>
+	  <td><div id="yue4_yang2" class="citymap"></div></td>
+	  <td><div id="chang2_de2" class="citymap"></div></td>
+	  <td><div id="zhang1_jia1_jie4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="huai2_hua4" class="citymap"></div></td>
+	  <td><div id="zhu1_zhou1" class="citymap"></div></td>
+	  <td><div id="yong3_zhou1" class="citymap"></div></td>
+	  <td><div id="xiang1_tan2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="xiang1_xi1_tu3_jia1_zu2_miao2_zu2_zi4_zhi4_zhou1" class="citymap"></div></td>
+	  <td><div id="yi4_yang2" class="citymap"></div></td>
+	  <td><div id="heng2_yang2" class="citymap"></div></td>
+	  <td><div id="shao4_yang2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="chen1_zhou1" class="citymap"></div></td>
+	  <td><div id="chang2_sha1" class="citymap"></div></td>
+	</tr>
+  </table>
+  <h2>福建 - fu2_jian4</h2>
+  <table>
+	<tr>
+	  <td><div id="san1_ming2" class="citymap"></div></td>
+	  <td><div id="nan2_ping2" class="citymap"></div></td>
+	  <td><div id="sha4_men2" class="citymap"></div></td>
+	  <td><div id="ning2_de2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="quan2_zhou1" class="citymap"></div></td>
+	  <td><div id="zhang1_zhou1" class="citymap"></div></td>
+	  <td><div id="fu2_zhou1" class="citymap"></div></td>
+	  <td><div id="fu3_tian2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="long2_yan2" class="citymap"></div></td>
+	</tr>
+  </table>
+
+  <script src="demo.js"></script>
+  <script>
+	<!-- 广西 -->
+	make_city('北海', 'bei3_hai3');
+	make_city('南宁', 'nan2_ning2');
+	make_city('崇左', 'chong2_zuo3');
+	make_city('来宾', 'lai2_bin1');
+	make_city('柳州', 'liu3_zhou1');
+	make_city('桂林', 'gui4_lin2');
+	make_city('梧州', 'wu2_zhou1');
+	make_city('河池', 'he2_chi2');
+	make_city('玉林', 'yu4_lin2');
+	make_city('百色', 'bai3_se4');
+	make_city('贵港', 'gui4_gang3');
+	make_city('贺州', 'he4_zhou1');
+	make_city('钦州', 'qin1_zhou1');
+	make_city('防城港', 'fang2_cheng2_gang3');
+	<!-- 江西 -->
+	make_city('上饶', 'shang4_rao2');
+	make_city('九江', 'jiu3_jiang1');
+	make_city('南昌', 'nan2_chang1');
+	make_city('吉安', 'ji2_an1');
+	make_city('宜春', 'yi2_chun1');
+	make_city('抚州', 'fu3_zhou1');
+	make_city('新余', 'xin1_yu2');
+	make_city('景德镇', 'jing3_de2_zhen4');
+	make_city('萍乡', 'ping2_xiang1');
+	make_city('赣州', 'gan4_zhou1');
+	make_city('鹰潭', 'ying1_tan2');
+	<!-- 黑龙江 -->
+	make_city('七台河', 'qi1_tai2_he2');
+	make_city('伊春', 'yi1_chun1');
+	make_city('佳木斯', 'jia1_mu4_si1');
+	make_city('双鸭山', 'shuang1_ya1_shan1');
+	make_city('哈尔滨', 'ha1_er3_bin1');
+	make_city('大兴安岭地区', 'da4_xing1_an1_ling2_di4_qu1');
+	make_city('大庆', 'da4_qing4');
+	make_city('牡丹江', 'mu3_dan1_jiang1');
+	make_city('绥化', 'sui1_hua4');
+	make_city('鸡西', 'ji1_xi1');
+	make_city('鹤岗', 'he4_gang3');
+	make_city('黑河', 'hei1_he2');
+	make_city('齐齐哈尔', 'qi2_qi2_ha1_er3');
+	<!-- 广东 -->
+	make_city('云浮', 'yun2_fu2');
+	make_city('佛山', 'fo2_shan1');
+	make_city('广州', 'guang3_zhou1');
+	make_city('惠州', 'hui4_zhou1');
+	make_city('揭阳', 'jie1_yang2');
+	make_city('梅州', 'mei2_zhou1');
+	make_city('汕头', 'shan4_tou2');
+	make_city('汕尾', 'shan4_wei3');
+	make_city('江门', 'jiang1_men2');
+	make_city('河源', 'he2_yuan2');
+	make_city('深圳', 'shen1_zhen4');
+	make_city('清远', 'qing1_yuan3');
+	make_city('湛江', 'zhan4_jiang1');
+	make_city('潮州', 'chao2_zhou1');
+	make_city('珠海', 'zhu1_hai3');
+	make_city('肇庆', 'zhao4_qing4');
+	make_city('茂名', 'mao4_ming2');
+	make_city('阳江', 'yang2_jiang1');
+	make_city('韶关', 'shao2_guan1');
+	<!-- 安徽 -->
+	make_city('亳州', 'bo2_zhou1');
+	make_city('六安', 'liu4_an1');
+	make_city('合肥', 'he2_fei2');
+	make_city('安庆', 'an1_qing4');
+	make_city('宣城', 'xuan1_cheng2');
+	make_city('宿州', 'su4_zhou1');
+	make_city('池州', 'chi2_zhou1');
+	make_city('淮北', 'huai2_bei3');
+	make_city('淮南', 'huai2_nan2');
+	make_city('滁州', 'chu2_zhou1');
+	make_city('芜湖', 'wu2_hu2');
+	make_city('蚌埠', 'bang4_bu4');
+	make_city('铜陵', 'tong2_ling2');
+	make_city('阜阳', 'fu4_yang2');
+	make_city('马鞍山', 'ma3_an1_shan1');
+	make_city('黄山', 'huang2_shan1');
+	<!-- 内蒙古 -->
+	make_city('乌兰察布', 'wu1_lan2_cha2_bu4');
+	make_city('乌海', 'wu1_hai3');
+	make_city('兴安盟', 'xing1_an1_meng2');
+	make_city('包头', 'bao1_tou2');
+	make_city('呼伦贝尔', 'hu1_lun2_bei4_er3');
+	make_city('呼和浩特', 'hu1_he2_hao4_te4');
+	make_city('巴彦淖尔', 'ba1_yan4_nao4_er3');
+	make_city('赤峰', 'chi4_feng1');
+	make_city('通辽', 'tong1_liao2');
+	make_city('鄂尔多斯', 'e4_er3_duo1_si1');
+	make_city('锡林郭勒盟', 'xi2_lin2_guo1_le4_meng2');
+	make_city('阿拉善盟', 'a1_la1_shan4_meng2');
+	<!-- 吉林 -->
+	make_city('吉林', 'ji2_lin2');
+	make_city('四平', 'si4_ping2');
+	make_city('延边朝鲜族自治州', 'yan2_bian1_zhao1_xian1_zu2_zi4_zhi4_zhou1');
+	make_city('松原', 'song1_yuan2');
+	make_city('白城', 'bai2_cheng2');
+	make_city('白山', 'bai2_shan1');
+	make_city('辽源', 'liao2_yuan2');
+	make_city('通化', 'tong1_hua4');
+	make_city('长春', 'chang2_chun1');
+	<!-- 河南 -->
+	make_city('三门峡', 'san1_men2_xia2');
+	make_city('信阳', 'xin4_yang2');
+	make_city('南阳', 'nan2_yang2');
+	make_city('周口', 'zhou1_kou3');
+	make_city('商丘', 'shang1_qiu1');
+	make_city('安阳', 'an1_yang2');
+	make_city('平顶山', 'ping2_ding3_shan1');
+	make_city('开封', 'kai1_feng1');
+	make_city('新乡', 'xin1_xiang1');
+	make_city('洛阳', 'luo4_yang2');
+	make_city('漯河', 'ta4_he2');
+	make_city('濮阳', 'pu2_yang2');
+	make_city('焦作', 'jiao1_zuo4');
+	make_city('许昌', 'xu3_chang1');
+	make_city('郑州', 'zheng4_zhou1');
+	make_city('驻马店', 'zhu4_ma3_dian4');
+	make_city('鹤壁', 'he4_bi4');
+	<!-- 海南 -->
+	make_city('万宁', 'wan4_ning2');
+	make_city('三亚', 'san1_ya4');
+	make_city('三沙', 'san1_sha1');
+	make_city('东方', 'dong1_fang1');
+	make_city('临高县', 'lin2_gao1_xian4');
+	make_city('乐东黎族自治县', 'le4_dong1_li2_zu2_zi4_zhi4_xian4');
+	make_city('五指山', 'wu3_zhi3_shan1');
+	make_city('保亭黎族苗族自治县', 'bao3_ting2_li2_zu2_miao2_zu2_zi4_zhi4_xian4');
+	make_city('儋州', 'dan1_zhou1');
+	make_city('定安县', 'ding4_an1_xian4');
+	make_city('屯昌县', 'tun2_chang1_xian4');
+	make_city('文昌', 'wen2_chang1');
+	make_city('昌江黎族自治县', 'chang1_jiang1_li2_zu2_zi4_zhi4_xian4');
+	make_city('海口', 'hai3_kou3');
+	make_city('澄迈县', 'cheng2_mai4_xian4');
+	make_city('琼中黎族苗族自治县', 'qiong2_zhong1_li2_zu2_miao2_zu2_zi4_zhi4_xian4');
+	make_city('琼海', 'qiong2_hai3');
+	make_city('白沙黎族自治县', 'bai2_sha1_li2_zu2_zi4_zhi4_xian4');
+	make_city('陵水黎族自治县', 'ling2_shui3_li2_zu2_zi4_zhi4_xian4');
+	<!-- 河北 -->
+	make_city('保定', 'bao3_ding4');
+	make_city('唐山', 'tang2_shan1');
+	make_city('廊坊', 'lang2_fang1');
+	make_city('张家口', 'zhang1_jia1_kou3');
+	make_city('承德', 'cheng2_de2');
+	make_city('石家庄', 'shi2_jia1_zhuang1');
+	make_city('秦皇岛', 'qin2_huang2_dao3');
+	make_city('衡水', 'heng2_shui3');
+	make_city('邢台', 'xing2_tai2');
+	make_city('邯郸', 'han2_dan1');
+	<!-- 山东 -->
+	make_city('东营', 'dong1_ying2');
+	make_city('临沂', 'lin2_yi2');
+	make_city('威海', 'wei1_hai3');
+	make_city('德州', 'de2_zhou1');
+	make_city('日照', 'ri4_zhao4');
+	make_city('枣庄', 'zao3_zhuang1');
+	make_city('泰安', 'tai4_an1');
+	make_city('济南', 'ji4_nan2');
+	make_city('济宁', 'ji4_ning2');
+	make_city('淄博', 'zi1_bo2');
+	make_city('滨州', 'bin1_zhou1');
+	make_city('潍坊', 'wei2_fang1');
+	make_city('烟台', 'yan1_tai2');
+	make_city('聊城', 'liao2_cheng2');
+	make_city('莱芜', 'lai2_wu2');
+	make_city('菏泽', 'he2_ze2');
+	make_city('青岛', 'qing1_dao3');
+	<!-- 山西 -->
+	make_city('临汾', 'lin2_fen2');
+	make_city('吕梁', 'lv3_liang2');
+	make_city('大同', 'da4_tong2');
+	make_city('太原', 'tai4_yuan2');
+	make_city('忻州', 'xin1_zhou1');
+	make_city('晋中', 'jin4_zhong1');
+	make_city('晋城', 'jin4_cheng2');
+	make_city('朔州', 'shuo4_zhou1');
+	make_city('运城', 'yun4_cheng2');
+	make_city('长治', 'chang2_zhi4');
+	make_city('阳泉', 'yang2_quan2');
+	<!-- 江苏 -->
+	make_city('南京', 'nan2_jing1');
+	make_city('南通', 'nan2_tong1');
+	make_city('宿迁', 'su4_qian1');
+	make_city('常州', 'chang2_zhou1');
+	make_city('徐州', 'xu2_zhou1');
+	make_city('扬州', 'yang2_zhou1');
+	make_city('无锡', 'wu2_xi2');
+	make_city('泰州', 'tai4_zhou1');
+	make_city('淮安', 'huai2_an1');
+	make_city('盐城', 'yan2_cheng2');
+	make_city('苏州', 'su1_zhou1');
+	make_city('连云港', 'lian2_yun2_gang3');
+	make_city('镇江', 'zhen4_jiang1');
+	<!-- 辽宁 -->
+	make_city('丹东', 'dan1_dong1');
+	make_city('大连', 'da4_lian2');
+	make_city('抚顺', 'fu3_shun4');
+	make_city('朝阳', 'zhao1_yang2');
+	make_city('本溪', 'ben3_xi1');
+	make_city('沈阳', 'shen3_yang2');
+	make_city('盘锦', 'pan2_jin3');
+	make_city('营口', 'ying2_kou3');
+	make_city('葫芦岛', 'hu2_lu2_dao3');
+	make_city('辽阳', 'liao2_yang2');
+	make_city('铁岭', 'tie3_ling2');
+	make_city('锦州', 'jin3_zhou1');
+	make_city('阜新', 'fu4_xin1');
+	make_city('鞍山', 'an1_shan1');
+	<!-- 四川 -->
+	make_city('乐山', 'le4_shan1');
+	make_city('内江', 'nei4_jiang1');
+	make_city('凉山彝族自治州', 'liang2_shan1_yi2_zu2_zi4_zhi4_zhou1');
+	make_city('南充', 'nan2_chong1');
+	make_city('宜宾', 'yi2_bin1');
+	make_city('巴中', 'ba1_zhong1');
+	make_city('广元', 'guang3_yuan2');
+	make_city('广安', 'guang3_an1');
+	make_city('德阳', 'de2_yang2');
+	make_city('成都', 'cheng2_du1');
+	make_city('攀枝花', 'pan1_zhi1_hua1');
+	make_city('泸州', 'lu2_zhou1');
+	make_city('甘孜藏族自治州', 'gan1_zi1_cang2_zu2_zi4_zhi4_zhou1');
+	make_city('眉山', 'mei2_shan1');
+	make_city('绵阳', 'mian2_yang2');
+	make_city('自贡', 'zi4_gong4');
+	make_city('资阳', 'zi1_yang2');
+	make_city('达州', 'da2_zhou1');
+	make_city('遂宁', 'sui4_ning2');
+	make_city('阿坝藏族羌族自治州', 'a1_ba4_cang2_zu2_qiang1_zu2_zi4_zhi4_zhou1');
+	make_city('雅安', 'ya3_an1');
+	<!-- 浙江 -->
+	make_city('丽水', 'li4_shui3');
+	make_city('台州', 'tai2_zhou1');
+	make_city('嘉兴', 'jia1_xing1');
+	make_city('宁波', 'ning2_bo1');
+	make_city('杭州', 'hang2_zhou1');
+	make_city('温州', 'wen1_zhou1');
+	make_city('湖州', 'hu2_zhou1');
+	make_city('绍兴', 'shao4_xing1');
+	make_city('舟山', 'zhou1_shan1');
+	make_city('衢州', 'qu2_zhou1');
+	make_city('金华', 'jin1_hua2');
+	<!-- 湖北 -->
+	make_city('十堰', 'shi2_yan4');
+	make_city('咸宁', 'xian2_ning2');
+	make_city('孝感', 'xiao4_gan3');
+	make_city('宜昌', 'yi2_chang1');
+	make_city('恩施土家族苗族自治州', 'en1_shi1_tu3_jia1_zu2_miao2_zu2_zi4_zhi4_zhou1');
+	make_city('武汉', 'wu3_han4');
+	make_city('荆州', 'jing1_zhou1');
+	make_city('荆门', 'jing1_men2');
+	make_city('襄阳', 'xiang1_yang2');
+	make_city('鄂州', 'e4_zhou1');
+	make_city('随州', 'sui2_zhou1');
+	make_city('黄冈', 'huang2_gang1');
+	make_city('黄石', 'huang2_shi2');
+	<!-- 湖南 -->
+	make_city('娄底', 'lou2_di3');
+	make_city('岳阳', 'yue4_yang2');
+	make_city('常德', 'chang2_de2');
+	make_city('张家界', 'zhang1_jia1_jie4');
+	make_city('怀化', 'huai2_hua4');
+	make_city('株洲', 'zhu1_zhou1');
+	make_city('永州', 'yong3_zhou1');
+	make_city('湘潭', 'xiang1_tan2');
+	make_city('湘西土家族苗族自治州', 'xiang1_xi1_tu3_jia1_zu2_miao2_zu2_zi4_zhi4_zhou1');
+	make_city('益阳', 'yi4_yang2');
+	make_city('衡阳', 'heng2_yang2');
+	make_city('邵阳', 'shao4_yang2');
+	make_city('郴州', 'chen1_zhou1');
+	make_city('长沙', 'chang2_sha1');
+	<!-- 福建 -->
+	make_city('三明', 'san1_ming2');
+	make_city('南平', 'nan2_ping2');
+	make_city('厦门', 'sha4_men2');
+	make_city('宁德', 'ning2_de2');
+	make_city('泉州', 'quan2_zhou1');
+	make_city('漳州', 'zhang1_zhou1');
+	make_city('福州', 'fu2_zhou1');
+	make_city('莆田', 'fu3_tian2');
+	make_city('龙岩', 'long2_yan2');
+  </script>
