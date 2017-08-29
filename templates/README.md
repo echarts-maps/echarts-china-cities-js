@@ -4,7 +4,13 @@ It collects all geo-jsons in javascript of all {{num_cities}} provincial cities
 in {{num_provinces}} and acts as a static asset to jupyter-echarts or your
 echarts collection.
 
-## Use with echarts
+## Installation
+
+```
+npm i echarts-china-cities-js
+```
+
+## echarts usage
 
 ```
 <html>
@@ -31,7 +37,9 @@ echarts collection.
 
 ![Usage with echarts](https://chfw.github.io/echarts-china-cities-js/nanchang.png)
 
-## Use with pyecharts
+## pyecharts usage
+
+This library is included in pyecharts 2.0.2. No action is required from you.
 
 ![Usage with pyecharts](https://user-images.githubusercontent.com/4280312/29755070-9bc9ae70-8b89-11e7-9bf2-bec09cb5f1a1.png)
 
@@ -63,9 +71,16 @@ $ npm test
 
 ## License
 
-This bundling code is MIT license. The geojson libraries are downloaded from
-AMap.com(高德地图) via [echarts-map-tool](http://ecomfe.github.io/echarts-map-tool/),
-hence are subjected to AMap's license. Similiar
-to google's map dadta, it is free as long as the public's access to your files
-are free. And you shall not start making commercial applications using the
-files in this package without engaging AMap.com.
+The geojson files are downloaded from AMap.com(高德地图) via [echarts-map-tool](http://ecomfe.github.io/echarts-map-tool/),
+hence are subjected to AMap's [service and content license](https://lbs.amap.com/home/terms/).
+
+**No content right** have been transferred to you and you shall **engage AMap.com** before
+making commercial applications using the files in this package. No liability/Guarantee were
+given for any error or flaws in the downloaded files.
+
+### Free usage instructions
+
+Similiar to google's map data, it is free as long as the public's access to your files
+are free. 
+
+This bundling code(makedemo.py) is MIT license.
