@@ -12,6 +12,8 @@ echarts collection.
 npm i echarts-china-cities-js
 ```
 
+This library is included in [pyecharts](https://github.com/chenjiandongx/pyecharts) 2.0.2. No action is required from you.
+
 ## echarts usage
 
 ```
@@ -40,8 +42,6 @@ npm i echarts-china-cities-js
 ![Usage with echarts](https://chfw.github.io/echarts-china-cities-js/nanchang.png)
 
 ## pyecharts usage
-
-This library is included in pyecharts 2.0.2. No action is required from you.
 
 ![Usage with pyecharts](https://user-images.githubusercontent.com/4280312/29755070-9bc9ae70-8b89-11e7-9bf2-bec09cb5f1a1.png)
 
