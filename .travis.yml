@@ -3,8 +3,8 @@ language: python
 notifications:
   email: false
 python:
-  - 3.6
+  - 2.7
 before_install:
-  - pip install -r tests/requirements.txt
+  - pip install -r test/requirements.txt
 script:
   - nosetests 
