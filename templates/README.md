@@ -61,6 +61,7 @@ Cities:
 Please use python
 
 ```shell
+$ pip install -r requirements
 $ python makedemo.py
 ```
 
