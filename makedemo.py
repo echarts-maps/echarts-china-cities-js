@@ -41,13 +41,20 @@ if __name__ == '__main__':
             print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
             shutil.copy(src_file, _dest_file)
             rendering_dict[cfolder].append((cname, pname))
+    # statistics
+    count = 0
+    for cprovince in rendering_dict.keys():
+        count += len(rendering_dict[cprovince])
+    provinces, cities = len(rendering_dict.keys()), count
+
     jinja2_env = Environment(
         loader=FileSystemLoader('./templates'),
         keep_trailing_newline=True,
         trim_blocks=True,
         lstrip_blocks=True)
     template = jinja2_env.get_template('index.html')
-    html = template.render(names=name_dict, registry=rendering_dict)
+    html = template.render(names=name_dict, registry=rendering_dict,
+                           num_cities=cities)
     with codecs.open('index.html', 'wb', 'utf-8') as f:
         f.write(html)
 
@@ -55,11 +62,6 @@ if __name__ == '__main__':
     config_json = config.render(names=name_dict, registry=rendering_dict)
     with codecs.open(os.path.join('dist', 'config.json'), 'wb', 'utf-8') as f:
         f.write(config_json)
-
-    count = 0
-    for cprovince in rendering_dict.keys():
-        count += len(rendering_dict[cprovince])
-    provinces, cities = len(rendering_dict.keys()), count
 
     readme = jinja2_env.get_template('README.md')
     readme_txt = readme.render(
