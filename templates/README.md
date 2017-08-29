@@ -1,5 +1,7 @@
 # echarts-china-cities-js
 
+[![Build Status](https://travis-ci.org/chfw/echarts-china-cities-js.svg?branch=master)](https://travis-ci.org/chfw/echarts-china-cities-js)
+
 It collects all geo-jsons in javascript of all {{num_cities}} provincial cities
 in {{num_provinces}} and acts as a static asset to jupyter-echarts or your
 echarts collection.
@@ -49,7 +51,7 @@ Cities:
 {% for cprovince in registry.keys() %}
 {{loop.index}}. **{{cprovince}}**:
 {% for city in registry[cprovince] %}
-[{{city[0]}}]("https://chfw.github.io/echarts-china-cities-js/dist/{{names[cprovince]}}/{{city[1]}}.js"){% if not loop.last %}, {% endif %}{% endfor %}
+[{{city[0]}}](https://chfw.github.io/echarts-china-cities-js/dist/{{names[cprovince]}}/{{city[1]}}.js){% if not loop.last %}, {% endif %}{% endfor %}
 
 {% endfor %}
 
@@ -75,7 +77,7 @@ The geojson files are downloaded from AMap.com(高德地图) via [echarts-map-to
 hence are subjected to AMap's [service and content license](https://lbs.amap.com/home/terms/).
 
 **No content right** have been transferred to you and you shall **engage AMap.com** before
-making commercial applications using the files in this package. No liability/Guarantee were
+making commercial applications using the files in this package. No Liability nor Guarantee were
 given for any error or flaws in the downloaded files.
 
 ### Free usage instructions
