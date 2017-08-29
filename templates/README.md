@@ -8,7 +8,7 @@ echarts collection.
 
 Cities:
 {% for cprovince in registry.keys() %}
-**{{cprovince}}**:
+{{loop.index}}. **{{cprovince}}**:
 {% for city in registry[cprovince] %}
 {{city[0]}}{% if not loop.last %}, {% endif %}{% endfor %}
 
