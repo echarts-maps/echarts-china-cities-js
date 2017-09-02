@@ -110,6 +110,7 @@ Please use python
 
 ```shell
 $ pip install -r requirements
+$ npm install
 $ python makedemo.py
 ```
 
