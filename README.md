@@ -1,6 +1,6 @@
 # echarts-china-cities-js
 
-[![Build Status](https://travis-ci.org/chfw/echarts-china-cities-js.svg?branch=master)](https://travis-ci.org/chfw/echarts-china-cities-js)
+[![Build Status](https://travis-ci.org/chfw/echarts-china-cities-js.svg?branch=master)](https://travis-ci.org/chfw/echarts-china-cities-js) [![npm version](https://badge.fury.io/js/echarts-china-cities-js.svg)](https://badge.fury.io/js/echarts-china-cities-js)
 
 It collects all geo-jsons in javascript of all 363 provincial cities
 in 27 and acts as a static asset to jupyter-echarts or your
@@ -12,7 +12,7 @@ echarts collection.
 npm i echarts-china-cities-js
 ```
 
-This library is included in [pyecharts](https://github.com/chenjiandongx/pyecharts) 2.0.2. No action is required from pyecharts user.
+This library is included in [pyecharts](https://github.com/chenjiandongx/pyecharts) 2.2.0. No action is required from pyecharts user.
 
 ## echarts usage
 
