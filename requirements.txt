@@ -1,2 +1,3 @@
 pinyin
 mafan
+css-html-js-minify

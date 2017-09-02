@@ -27,7 +27,7 @@ This library is included in [pyecharts](https://github.com/chenjiandongx/pyechar
 	  }
 	</style>
   	<script src="https://chfw.github.io/echarts-china-cities-js/echarts.min.js"></script>
-	<script src="https://chfw.github.io/echarts-china-cities-js/dist/jiang1_xi1/nan2_chang1.js"></script>
+	<script src="https://chfw.github.io/echarts-china-cities-js/dist/jiang1_xi1/nan2_chang1.min.js"></script>
   </head>
   <body>
 	<div id='nan2_chang1' class='citymap'></div>
@@ -51,7 +51,7 @@ Cities:
 {% for cprovince in registry.keys() %}
 {{loop.index}}. **{{cprovince}}**:
 {% for city in registry[cprovince] %}
-[{{city[0]}}](https://chfw.github.io/echarts-china-cities-js/dist/{{names[cprovince]}}/{{city[1]}}.js){% if not loop.last %}, {% endif %}{% endfor %}
+[{{city[0]}}](https://chfw.github.io/echarts-china-cities-js/dist/{{names[cprovince]}}/{{city[1]}}.min.js){% if not loop.last %}, {% endif %}{% endfor %}
 
 {% endfor %}
 

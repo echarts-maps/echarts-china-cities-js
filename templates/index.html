@@ -8,12 +8,15 @@
 	  width: 300px;
 	  height: 300px;
 	  }
+	  body {
+	  background-color: #eee;
+	  }
 	</style>
 	<script src="echarts.min.js"></script>
 	{% for cprovince in registry.keys() %}
 	<!-- {{cprovince}} -->
 	{% for city in registry[cprovince] %}
-	<script src="dist/{{names[cprovince]}}/{{city[1]}}.js"></script>
+	<script src="dist/{{names[cprovince]}}/{{city[1]}}.min.js"></script>
 	{% endfor %}
 	{% endfor %}
 </head>
