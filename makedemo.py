@@ -3,11 +3,11 @@ from __future__ import unicode_literals
 
 import os
 import glob
-import shutil
 import pinyin
 from collections import defaultdict
 from jinja2 import Environment, FileSystemLoader
 import codecs
+from collections import OrderedDict
 
 
 def list_base(src_folder):
@@ -25,9 +25,13 @@ def list_a_directory(src_folder):
         yield f, file_name, pinyin_name
 
 
+def minify_js(src_js, min_js):
+    os.system('./node_modules/.bin/minify -o %s %s' % (min_js, src_js))
+
+
 if __name__ == '__main__':
     name_dict = {}
-    rendering_dict = defaultdict(list)
+    raw_rendering_dict = defaultdict(list)
     for folder in list_base('src/*'):
         cfolder = os.path.basename(folder)
         pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
@@ -37,14 +41,19 @@ if __name__ == '__main__':
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.js"))
         for src_file, cname, pname in all_files:
-            _dest_file = os.path.join(_dest_folder, "%s.js" % pname)
+            _dest_file = os.path.join(_dest_folder, "%s.min.js" % pname)
             print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
-            shutil.copy(src_file, _dest_file)
-            rendering_dict[cfolder].append((cname, pname))
+            #minify_js(src_file, _dest_file)
+            raw_rendering_dict[cfolder].append((cname, pname))
     # statistics
     count = 0
-    for cprovince in rendering_dict.keys():
-        count += len(rendering_dict[cprovince])
+    rendering_dict = OrderedDict()
+    sorted_provinces = sorted(raw_rendering_dict.keys(),
+                              key=lambda x: pinyin.get(x, format='numerical'))
+    for cprovince in sorted_provinces:
+        count += len(raw_rendering_dict[cprovince])
+        rendering_dict[cprovince] = sorted(
+            raw_rendering_dict[cprovince], key=lambda x: x[1])
     provinces, cities = len(rendering_dict.keys()), count
 
     jinja2_env = Environment(

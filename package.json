@@ -1,19 +1,21 @@
 {
-  "name": "echarts-china-cities-js",
-  "version": "0.0.3",
-  "description": "Packages all js based geojson of all Chinese cities for echarts",
-  "main": "dist/index.js",
-  "scripts": {
-      "test": "nosetests"
-  },
-  "keywords": [
-      "geojson"
-  ],
-  "repository" :
-	{
-		"type" : "git",
-		"url" : "https://github.com/chfw/echarts-china-cities-js.git"
-	},
-  "author": "C. W. <wangc_2011@hotmail.com> (https://github.com/chfw)",
-  "license": "MIT"
+    "name": "echarts-china-cities-js",
+    "version": "0.0.4",
+    "description": "Packages all js based geojson of all Chinese cities for echarts",
+    "main": "dist/index.js",
+    "scripts": {
+        "test": "nosetests"
+    },
+    "keywords": [
+        "geojson"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/chfw/echarts-china-cities-js.git"
+    },
+    "author": "C. W. <wangc_2011@hotmail.com> (https://github.com/chfw)",
+    "license": "MIT",
+    "devDependencies": {
+        "minifier": "^0.8.1"
+    }
 }
