@@ -64,7 +64,7 @@ if __name__ == '__main__':
     template = jinja2_env.get_template('index.html')
     html = template.render(names=name_dict, registry=rendering_dict,
                            num_cities=cities)
-    with codecs.open('index.html', 'wb', 'utf-8') as f:
+    with codecs.open('preview.html', 'wb', 'utf-8') as f:
         f.write(html)
 
     config = jinja2_env.get_template('config.json')
