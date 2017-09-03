@@ -1,5 +1,9 @@
 # Change log
 
+## 0.0.6 - 03.09.2017
+
+Restore it old naming due to backward compactibility concerns.
+
 ## 0.0.5 - 03.09.2017
 
 a la shan meng(阿拉善盟) was not shown.
