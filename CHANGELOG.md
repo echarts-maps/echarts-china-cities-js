@@ -1,5 +1,9 @@
 # Change log
 
+## 0.0.7 - 03.09.2017
+
+Bug fix. update config.json with name without min.
+
 ## 0.0.6 - 03.09.2017
 
 Restore it old naming due to backward compactibility concerns.
