@@ -1,5 +1,9 @@
 # Change log
 
+## 0.0.8 - 28.09.2017
+
+fix readme
+
 ## 0.0.7 - 03.09.2017
 
 Bug fix. update config.json with name without min.
