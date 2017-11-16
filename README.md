@@ -47,6 +47,13 @@ This library is included in [pyecharts](https://github.com/chenjiandongx/pyechar
 
 ![Usage with pyecharts](https://user-images.githubusercontent.com/4280312/29755070-9bc9ae70-8b89-11e7-9bf2-bec09cb5f1a1.png)
 
+## "first line" cities
+
+They are not included in this package but are listed here for your reference:
+
+[北京](https://chfw.github.io/jupyter-echarts/echarts/beijing.js), [天津](https://chfw.github.io/jupyter-echarts/echarts/tianjin.js), [上海](https://chfw.github.io/jupyter-echarts/echarts/shanghai.js), [重庆](https://chfw.github.io/jupyter-echarts/echarts/chongqing.js), [香港](https://chfw.github.io/jupyter-echarts/echarts/xianggang.js) and [澳门](https://chfw.github.io/jupyter-echarts/echarts/aomen.js)
+
+
 ## Featuring Cities(or for Single Download)
 
 Cities:
