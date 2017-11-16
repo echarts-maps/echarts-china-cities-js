@@ -3,8 +3,10 @@
 [![Build Status](https://travis-ci.org/chfw/echarts-china-cities-js.svg?branch=master)](https://travis-ci.org/chfw/echarts-china-cities-js) [![npm version](https://badge.fury.io/js/echarts-china-cities-js.svg)](https://badge.fury.io/js/echarts-china-cities-js)
 
 It collects all geo-jsons in javascript of all 363 provincial cities
-in 27 and acts as a static asset to jupyter-echarts or your
+in 27 provinces and acts as a static asset to jupyter-echarts or your
 echarts collection.
+
+Please note, [北京](https://chfw.github.io/jupyter-echarts/echarts/beijing.js), [天津](https://chfw.github.io/jupyter-echarts/echarts/tianjin.js), [上海](https://chfw.github.io/jupyter-echarts/echarts/shanghai.js), [重庆](https://chfw.github.io/jupyter-echarts/echarts/chongqing.js), [香港](https://chfw.github.io/jupyter-echarts/echarts/xianggang.js) and [澳门](https://chfw.github.io/jupyter-echarts/echarts/aomen.js) are packaged with echarts and [jupyter-echarts](https://chfw.github.io/jupyter-echarts/preview.html) henece those 6 cities are not covered in this package.
 
 ## Installation
 
