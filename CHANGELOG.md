@@ -1,5 +1,9 @@
 # Change log
 
+## 0.0.9 - 29.12.2017
+
+Added cang1 zhou1
+
 ## 0.0.8 - 28.09.2017
 
 fix readme
