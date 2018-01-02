@@ -1,4 +1,7 @@
 {
+    "JUPYTER_URL": "/nbextensions/echarts-countries-js",
+    "GITHUB_URL": "https://pyecharts.github.io/echarts-countries-js/echarts-countries-js",
+    "JUPYTER_ENTRY": "echarts-countries-js/index",
 	"PINYIN_MAP": {
 		{% set comma = joiner(",") %}
 		{% for cprovince in registry.keys() %}

@@ -9,6 +9,9 @@ from jinja2 import Environment, FileSystemLoader
 import codecs
 from collections import OrderedDict
 
+DEST_FOLDER = 'echarts-countries-js'
+REGISTRY_FILE = 'registry.json'
+
 
 def list_base(src_folder):
     for folder in glob.glob(src_folder):
@@ -35,7 +38,7 @@ if __name__ == '__main__':
     for folder in list_base('src/*'):
         cfolder = os.path.basename(folder)
         pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
-        _dest_folder = os.path.join('dist', pfolder)
+        _dest_folder = os.path.join(DEST_FOLDER, pfolder)
         name_dict[cfolder] = pfolder
         if not os.path.exists(_dest_folder):
             os.mkdir(_dest_folder)
@@ -69,7 +72,8 @@ if __name__ == '__main__':
 
     config = jinja2_env.get_template('config.json')
     config_json = config.render(names=name_dict, registry=rendering_dict)
-    with codecs.open(os.path.join('dist', 'config.json'), 'wb', 'utf-8') as f:
+    registry_file = os.path.join(DEST_FOLDER, REGISTRY_FILE)
+    with codecs.open(registry_file, 'wb', 'utf-8') as f:
         f.write(config_json)
 
     readme = jinja2_env.get_template('README.md')
