@@ -1,7 +1,7 @@
 {
-    "JUPYTER_URL": "/nbextensions/echarts-countries-js",
-    "GITHUB_URL": "https://pyecharts.github.io/echarts-countries-js/echarts-countries-js",
-    "JUPYTER_ENTRY": "echarts-countries-js/index",
+    "JUPYTER_URL": "/nbextensions/echarts-china-cities-js",
+    "GITHUB_URL": "https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js",
+    "JUPYTER_ENTRY": "echarts-china-cities-js/index",
 	"PINYIN_MAP": {
 		 "安庆": "an1_qing4"
 		, "蚌埠": "bang4_bu4"

@@ -9,7 +9,7 @@ from jinja2 import Environment, FileSystemLoader
 import codecs
 from collections import OrderedDict
 
-DEST_FOLDER = 'echarts-countries-js'
+DEST_FOLDER = 'echarts-china-cities-js'
 REGISTRY_FILE = 'registry.json'
 
 
