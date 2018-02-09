@@ -73,7 +73,7 @@ if __name__ == '__main__':
 
     config = jinja2_env.get_template('config.json')
     config_json = config.render(names=name_dict, registry=rendering_dict)
-    registry_file = os.path.join(DEST_FOLDER, REGISTRY_FILE)
+    registry_file = REGISTRY_FILE
     with codecs.open(registry_file, 'wb', 'utf-8') as f:
         f.write(config_json)
 
