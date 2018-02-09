@@ -16,7 +16,7 @@
 	{% for cprovince in registry.keys() %}
 	<!-- {{cprovince}} -->
 	{% for city in registry[cprovince] %}
-	<script src="dist/{{names[cprovince]}}/{{city[1]}}.js"></script>
+	<script src="echarts-china-cities-js/{{names[cprovince]}}_{{city[1]}}.js"></script>
 	{% endfor %}
 	{% endfor %}
 </head>

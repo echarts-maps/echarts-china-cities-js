@@ -14,7 +14,7 @@
 		{% set comma = joiner(",") %}
 		{% for cprovince in registry.keys() %}
 		{% for city in registry[cprovince] %}
-		{{ comma() }} "{{city[1]}}": "{{names[cprovince]}}/{{city[1]}}.js"
+		{{ comma() }} "{{city[1]}}": "{{names[cprovince]}}_{{city[1]}}.js"
 		{% endfor %}
 		{% endfor %}
 	}

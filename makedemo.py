@@ -38,13 +38,14 @@ if __name__ == '__main__':
     for folder in list_base('src/*'):
         cfolder = os.path.basename(folder)
         pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
-        _dest_folder = os.path.join(DEST_FOLDER, pfolder)
+        _dest_folder = DEST_FOLDER
         name_dict[cfolder] = pfolder
         if not os.path.exists(_dest_folder):
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.js"))
         for src_file, cname, pname in all_files:
-            _dest_file = os.path.join(_dest_folder, "%s.js" % pname)
+            _dest_file = os.path.join(_dest_folder,
+                                      "%s_%s.js" % (pfolder, pname))
             print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
             #minify_js(src_file, _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))

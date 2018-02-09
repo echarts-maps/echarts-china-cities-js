@@ -60,7 +60,7 @@ Cities:
 {% for cprovince in registry.keys() %}
 {{loop.index}}. **{{cprovince}}**:
 {% for city in registry[cprovince] %}
-[{{city[0]}}](https://pyecharts.github.io/echarts-china-cities-js/dist/{{names[cprovince]}}/{{city[1]}}.js){% if not loop.last %}, {% endif %}{% endfor %}
+[{{city[0]}}](https://pyecharts.github.io/echarts-china-cities-js/dist/{{names[cprovince]}}_{{city[1]}}.js){% if not loop.last %}, {% endif %}{% endfor %}
 
 {% endfor %}
 
