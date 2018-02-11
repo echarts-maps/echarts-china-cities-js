@@ -2,21 +2,21 @@
     "JUPYTER_URL": "/nbextensions/echarts-china-cities-js",
     "GITHUB_URL": "https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js",
     "JUPYTER_ENTRY": "echarts-china-cities-js/index",
-    "JS_FOLDER": "echarts-china-cities-js"
-	"PINYIN_MAP": {
-		{% set comma = joiner(",") %}
-		{% for cprovince in registry.keys() %}
-		{% for city in registry[cprovince] %}
-		{{ comma() }} "{{city[0]}}": "{{city[1]}}"
-		{% endfor %}
-		{% endfor %}
-	},
-	"FILE_MAP": {
-		{% set comma = joiner(",") %}
-		{% for cprovince in registry.keys() %}
-		{% for city in registry[cprovince] %}
-		{{ comma() }} "{{city[1]}}": "{{names[cprovince]}}_{{city[1]}}.js"
-		{% endfor %}
-		{% endfor %}
-	}
+    "JS_FOLDER": "echarts-china-cities-js",
+    "PINYIN_MAP": {
+        {% set comma = joiner(",") %}
+        {% for cprovince in registry.keys() %}
+        {% for city in registry[cprovince] %}
+        {{ comma() }} "{{city[0]}}": "{{city[1]}}"
+        {% endfor %}
+        {% endfor %}
+    },
+    "FILE_MAP": {
+        {% set comma = joiner(",") %}
+        {% for cprovince in registry.keys() %}
+        {% for city in registry[cprovince] %}
+        {{ comma() }} "{{city[1]}}": "{{names[cprovince]}}_{{city[1]}}.js"
+        {% endfor %}
+        {% endfor %}
+    }
 }
