@@ -15,6 +15,7 @@ npm i echarts-china-cities-js
 
 ## echarts usage
 
+
 ```
 <html>
   <head>
@@ -25,12 +26,12 @@ npm i echarts-china-cities-js
 	  height: 100%;
 	  }
 	</style>
-  	<script src="https://pyecharts.github.io/echarts-china-cities-js/echarts.min.js"></script>
-	<script src="https://pyecharts.github.io/echarts-china-cities-js/dist/jiang1_xi1/nan2_chang1.min.js"></script>
+  	<script src="https://pyecharts.github.io/jupyter-echarts/echarts/echarts.min.js"></script>
+	<script src="https://echarts-maps.github.io/echarts-china-cities-js/echarts-china-cities-js/jiang1_xi1_nan2_chang1.js"></script>
   </head>
   <body>
 	<div id='nan2_chang1' class='citymap'></div>
-	<script src='https://pyecharts.github.io/echarts-china-cities-js/demo.js'></script>
+	<script src='https://echarts-maps.github.io/echarts-china-cities-js/demo.js'></script>
 	<script>
 	  make_city('南昌', 'nan2_chang1');
 	</script>
@@ -38,7 +39,7 @@ npm i echarts-china-cities-js
 </html>
 ```
 
-![Usage with echarts](https://pyecharts.github.io/echarts-china-cities-js/nanchang.png)
+![Usage with echarts](https://echarts-maps.github.io/echarts-china-cities-js/nanchang.png)
 
 ## pyecharts usage
 
