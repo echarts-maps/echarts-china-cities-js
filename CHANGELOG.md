@@ -1,5 +1,9 @@
 # Change log
 
+## 0.1.0 - unreleased
+
+Added beijing, aomen, chongqing, shanghai, tianjin, xianggang
+
 ## 0.0.9 - 29.12.2017
 
 Added cang1 zhou1

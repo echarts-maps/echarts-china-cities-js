@@ -15,7 +15,11 @@
         {% set comma = joiner(",") %}
         {% for cprovince in registry.keys() %}
         {% for city in registry[cprovince] %}
+        {% if cprovince in names %}
         {{ comma() }} "{{city[1]}}": "{{names[cprovince]}}_{{city[1]}}"
+        {% else %}
+        {{ comma() }} "{{city[1]}}": "{{city[1]}}"
+        {% endif %}
         {% endfor %}
         {% endfor %}
     }

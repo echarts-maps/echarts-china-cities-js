@@ -2,11 +2,10 @@
 
 [![Build Status](https://travis-ci.org/pyecharts/echarts-china-cities-js.svg?branch=master)](https://travis-ci.org/pyecharts/echarts-china-cities-js) [![npm version](https://badge.fury.io/js/echarts-china-cities-js.svg)](https://badge.fury.io/js/echarts-china-cities-js)
 
-It collects all geo-jsons in javascript of all 364 provincial cities
-in 27 provinces and acts as a static asset to jupyter-echarts or your
+It collects all geo-jsons in javascript of all 370 provincial cities
+in 28 provinces and acts as a static asset to jupyter-echarts or your
 echarts collection.
 
-Please note, [北京](https://pyecharts.github.io/jupyter-echarts/echarts/beijing.js), [天津](https://pyecharts.github.io/jupyter-echarts/echarts/tianjin.js), [上海](https://pyecharts.github.io/jupyter-echarts/echarts/shanghai.js), [重庆](https://pyecharts.github.io/jupyter-echarts/echarts/chongqing.js), [香港](https://pyecharts.github.io/jupyter-echarts/echarts/xianggang.js) and [澳门](https://pyecharts.github.io/jupyter-echarts/echarts/aomen.js) are packaged with echarts and [jupyter-echarts](https://pyecharts.github.io/jupyter-echarts/preview.html) hence those 6 cities are not covered in this package.
 
 ## Installation
 
@@ -46,12 +45,6 @@ This library is included in [pyecharts](https://github.com/chenjiandongx/pyechar
 ## pyecharts usage
 
 ![Usage with pyecharts](https://user-images.githubusercontent.com/4280312/29755070-9bc9ae70-8b89-11e7-9bf2-bec09cb5f1a1.png)
-
-## "first line" cities
-
-They are not included in this package but are listed here for your reference:
-
-[北京](https://pyecharts.github.io/jupyter-echarts/echarts/beijing.js), [天津](https://pyecharts.github.io/jupyter-echarts/echarts/tianjin.js), [上海](https://pyecharts.github.io/jupyter-echarts/echarts/shanghai.js), [重庆](https://pyecharts.github.io/jupyter-echarts/echarts/chongqing.js), [香港](https://pyecharts.github.io/jupyter-echarts/echarts/xianggang.js) and [澳门](https://pyecharts.github.io/jupyter-echarts/echarts/aomen.js)
 
 
 ## Featuring Cities(or for Single Download)
@@ -111,6 +104,8 @@ Cities:
 [保山](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_bao3_shan1.js), [楚雄彝族自治州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_chu3_xiong2_yi2_zu2_zi4_zhi4_zhou1.js), [大理白族自治州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_da4_li3_bai2_zu2_zi4_zhi4_zhou1.js), [德宏傣族景颇族自治州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_de2_hong2_dai3_zu2_jing3_po3_zu2_zi4_zhi4_zhou1.js), [迪庆藏族自治州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_di2_qing4_cang2_zu2_zi4_zhi4_zhou1.js), [红河哈尼族彝族自治州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_hong2_he2_ha1_ni2_zu2_yi2_zu2_zi4_zhi4_zhou1.js), [昆明](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_kun1_ming2.js), [丽江](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_li4_jiang1.js), [临沧](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_lin2_cang1.js), [怒江傈僳族自治州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_nu4_jiang1_li4_su4_zu2_zi4_zhi4_zhou1.js), [普洱](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_pu3_er3.js), [曲靖](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_qu1_jing4.js), [文山壮族苗族自治州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_wen2_shan1_zhuang4_zu2_miao2_zu2_zi4_zhi4_zhou1.js), [西双版纳傣族自治州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_xi1_shuang1_ban3_na4_dai3_zu2_zi4_zhi4_zhou1.js), [玉溪](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_yu4_xi1.js), [昭通](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/yun2_nan2_zhao1_tong1.js)
 27. **浙江**:
 [杭州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_hang2_zhou1.js), [湖州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_hu2_zhou1.js), [嘉兴](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_jia1_xing1.js), [金华](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_jin1_hua2.js), [丽水](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_li4_shui3.js), [宁波](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_ning2_bo1.js), [衢州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_qu2_zhou1.js), [绍兴](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_shao4_xing1.js), [台州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_tai2_zhou1.js), [温州](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_wen1_zhou1.js), [舟山](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/zhe4_jiang1_zhou1_shan1.js)
+28. **直辖市**:
+[澳门](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/_aomen.js), [北京](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/_beijing.js), [重庆](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/_chongqing.js), [上海](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/_shanghai.js), [天津](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/_tianjin.js), [香港](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/_xianggang.js)
 
 
 ## Development

@@ -1,7 +1,7 @@
 <!Doctype html>
 <html>
 <head>
-    <title>364 Chinese provincial cities Map Demo</title>
+    <title>370 Chinese provincial cities Map Demo</title>
     <meta charset="utf-8" />
 	<style>
 	  .citymap{
@@ -404,6 +404,13 @@
 	<script src="echarts-china-cities-js/zhe4_jiang1_tai2_zhou1.js"></script>
 	<script src="echarts-china-cities-js/zhe4_jiang1_wen1_zhou1.js"></script>
 	<script src="echarts-china-cities-js/zhe4_jiang1_zhou1_shan1.js"></script>
+	<!-- 直辖市 -->
+	<script src="echarts-china-cities-js/aomen.js"></script>
+	<script src="echarts-china-cities-js/beijing.js"></script>
+	<script src="echarts-china-cities-js/chongqing.js"></script>
+	<script src="echarts-china-cities-js/shanghai.js"></script>
+	<script src="echarts-china-cities-js/tianjin.js"></script>
+	<script src="echarts-china-cities-js/xianggang.js"></script>
 </head>
 <body>
   <h2>安徽 - an1_hui1</h2>
@@ -985,6 +992,18 @@
 	  <td><div id="zhou1_shan1" class="citymap"></div></td>
 	</tr>
   </table>
+  <h2>直辖市 - </h2>
+  <table>
+	<tr>
+	  <td><div id="aomen" class="citymap"></div></td>
+	  <td><div id="beijing" class="citymap"></div></td>
+	  <td><div id="chongqing" class="citymap"></div></td>
+	  <td><div id="shanghai" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="tianjin" class="citymap"></div></td>
+	  <td><div id="xianggang" class="citymap"></div></td>
+	</tr>
+  </table>
 
   <script src="demo.js"></script>
   <script>
@@ -1379,4 +1398,11 @@
 	make_city('台州', 'tai2_zhou1');
 	make_city('温州', 'wen1_zhou1');
 	make_city('舟山', 'zhou1_shan1');
+	<!-- 直辖市 -->
+	make_city('澳门', 'aomen');
+	make_city('北京', 'beijing');
+	make_city('重庆', 'chongqing');
+	make_city('上海', 'shanghai');
+	make_city('天津', 'tianjin');
+	make_city('香港', 'xianggang');
   </script>

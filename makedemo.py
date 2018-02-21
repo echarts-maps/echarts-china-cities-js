@@ -7,6 +7,7 @@ import pinyin
 from collections import defaultdict
 from jinja2 import Environment, FileSystemLoader
 import codecs
+from shutil import copyfile
 from collections import OrderedDict
 
 DEST_FOLDER = 'echarts-china-cities-js'
@@ -49,6 +50,21 @@ if __name__ == '__main__':
             print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
             #minify_js(src_file, _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))
+    # adding direct cities
+    cnames = ['北京', '澳门', '重庆', '上海', '天津', '香港']
+    cities = ['beijing', 'aomen', 'chongqing', 'shanghai',
+              'tianjin', 'xianggang']
+    for cname, pname in zip(cnames, cities):
+        src_file = os.path.join('node_modules',
+                                'echarts',
+                                'map',
+                                'js',
+                                'province',
+                                '%s.js' % pname)
+        _dest_file = os.path.join('echarts-china-cities-js', '%s.js' % pname)
+        copyfile(src_file, _dest_file)
+        print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+        raw_rendering_dict['直辖市'].append((cname, pname))
     # statistics
     count = 0
     rendering_dict = OrderedDict()

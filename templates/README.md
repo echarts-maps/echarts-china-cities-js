@@ -6,7 +6,6 @@ It collects all geo-jsons in javascript of all {{num_cities}} provincial cities
 in {{num_provinces}} provinces and acts as a static asset to jupyter-echarts or your
 echarts collection.
 
-Please note, [北京](https://pyecharts.github.io/jupyter-echarts/echarts/beijing.js), [天津](https://pyecharts.github.io/jupyter-echarts/echarts/tianjin.js), [上海](https://pyecharts.github.io/jupyter-echarts/echarts/shanghai.js), [重庆](https://pyecharts.github.io/jupyter-echarts/echarts/chongqing.js), [香港](https://pyecharts.github.io/jupyter-echarts/echarts/xianggang.js) and [澳门](https://pyecharts.github.io/jupyter-echarts/echarts/aomen.js) are packaged with echarts and [jupyter-echarts](https://pyecharts.github.io/jupyter-echarts/preview.html) hence those 6 cities are not covered in this package.
 
 ## Installation
 
@@ -46,12 +45,6 @@ This library is included in [pyecharts](https://github.com/chenjiandongx/pyechar
 ## pyecharts usage
 
 ![Usage with pyecharts](https://user-images.githubusercontent.com/4280312/29755070-9bc9ae70-8b89-11e7-9bf2-bec09cb5f1a1.png)
-
-## "first line" cities
-
-They are not included in this package but are listed here for your reference:
-
-[北京](https://pyecharts.github.io/jupyter-echarts/echarts/beijing.js), [天津](https://pyecharts.github.io/jupyter-echarts/echarts/tianjin.js), [上海](https://pyecharts.github.io/jupyter-echarts/echarts/shanghai.js), [重庆](https://pyecharts.github.io/jupyter-echarts/echarts/chongqing.js), [香港](https://pyecharts.github.io/jupyter-echarts/echarts/xianggang.js) and [澳门](https://pyecharts.github.io/jupyter-echarts/echarts/aomen.js)
 
 
 ## Featuring Cities(or for Single Download)

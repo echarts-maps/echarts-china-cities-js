@@ -16,7 +16,11 @@
 	{% for cprovince in registry.keys() %}
 	<!-- {{cprovince}} -->
 	{% for city in registry[cprovince] %}
+	{% if cprovince in names %}
 	<script src="echarts-china-cities-js/{{names[cprovince]}}_{{city[1]}}.js"></script>
+	{% else %}
+	<script src="echarts-china-cities-js/{{city[1]}}.js"></script>
+	{% endif %}
 	{% endfor %}
 	{% endfor %}
 </head>

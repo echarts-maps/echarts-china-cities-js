@@ -368,6 +368,12 @@
         , "台州": "tai2_zhou1"
         , "温州": "wen1_zhou1"
         , "舟山": "zhou1_shan1"
+        , "澳门": "aomen"
+        , "北京": "beijing"
+        , "重庆": "chongqing"
+        , "上海": "shanghai"
+        , "天津": "tianjin"
+        , "香港": "xianggang"
     },
     "FILE_MAP": {
          "an1_qing4": "an1_hui1_an1_qing4"
@@ -734,5 +740,11 @@
         , "tai2_zhou1": "zhe4_jiang1_tai2_zhou1"
         , "wen1_zhou1": "zhe4_jiang1_wen1_zhou1"
         , "zhou1_shan1": "zhe4_jiang1_zhou1_shan1"
+        , "aomen": "aomen"
+        , "beijing": "beijing"
+        , "chongqing": "chongqing"
+        , "shanghai": "shanghai"
+        , "tianjin": "tianjin"
+        , "xianggang": "xianggang"
     }
 }
