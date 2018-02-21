@@ -48,7 +48,7 @@ if __name__ == '__main__':
             _dest_file = os.path.join(_dest_folder,
                                       "%s_%s.js" % (pfolder, pname))
             print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
-            #minify_js(src_file, _dest_file)
+            # minify_js(src_file, _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))
     # adding direct cities
     cnames = ['北京', '澳门', '重庆', '上海', '天津', '香港']
