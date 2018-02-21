@@ -13,8 +13,6 @@ echarts collection.
 npm i echarts-china-cities-js
 ```
 
-This library is included in [pyecharts](https://github.com/chenjiandongx/pyecharts) 2.2.0. No action is required from pyecharts user.
-
 ## echarts usage
 
 ```
