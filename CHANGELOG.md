@@ -1,6 +1,6 @@
 # Change log
 
-## 0.1.0 - unreleased
+## 0.1.0 - 23.2.3018
 
 Added beijing, aomen, chongqing, shanghai, tianjin, xianggang
 
