@@ -62,7 +62,7 @@ if __name__ == '__main__':
                                 'province',
                                 '%s.js' % pname)
         _dest_file = os.path.join('echarts-china-cities-js', '%s.js' % pname)
-        copyfile(src_file, _dest_file)
+        minify_js(src_file, _dest_file)
         print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
         raw_rendering_dict['直辖市'].append((cname, pname))
     # statistics

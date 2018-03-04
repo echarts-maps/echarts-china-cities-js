@@ -1,5 +1,9 @@
 # Change log
 
+## 0.1.1 - 04.03.2018
+
+Minified all six newly added cities
+
 ## 0.1.0 - 23.2.3018
 
 Added beijing, aomen, chongqing, shanghai, tianjin, xianggang

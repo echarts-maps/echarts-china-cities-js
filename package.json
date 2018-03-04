@@ -1,6 +1,6 @@
 {
     "name": "echarts-china-cities-js",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Packages all js based geojson of all Chinese cities for echarts",
     "main": "dist/index.js",
     "scripts": {
