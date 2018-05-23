@@ -13,6 +13,10 @@ from collections import OrderedDict
 DEST_FOLDER = 'echarts-china-cities-js'
 REGISTRY_FILE = 'registry.json'
 
+MANUAL_FIX = {
+    "莆田": "pu3_tian2"
+}
+
 
 def list_base(src_folder):
     for folder in glob.glob(src_folder):
@@ -25,7 +29,11 @@ def list_a_directory(src_folder):
         file_name = os.path.basename(f).split('.')[0]
         if '市' in file_name:
             file_name = file_name[:-1]
-        pinyin_name = pinyin.get(file_name, format="numerical", delimiter="_")
+        if file_name in MANUAL_FIX:
+            pinyin_name = MANUAL_FIX[file_name]
+        else:
+            pinyin_name = pinyin.get(
+                file_name, format="numerical", delimiter="_")
         yield f, file_name, pinyin_name
 
 
@@ -48,7 +56,7 @@ if __name__ == '__main__':
             _dest_file = os.path.join(_dest_folder,
                                       "%s_%s.js" % (pfolder, pname))
             print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
-            # minify_js(src_file, _dest_file)
+            minify_js(src_file, _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))
     # adding direct cities
     cnames = ['北京', '澳门', '重庆', '上海', '天津', '香港']
