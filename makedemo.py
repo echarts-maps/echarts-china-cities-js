@@ -3,11 +3,11 @@ from __future__ import unicode_literals
 
 import os
 import glob
+import json
 import pinyin
 from collections import defaultdict
 from jinja2 import Environment, FileSystemLoader
 import codecs
-from shutil import copyfile
 from collections import OrderedDict
 
 DEST_FOLDER = 'echarts-china-cities-js'
@@ -98,5 +98,14 @@ if __name__ == '__main__':
         names=name_dict, registry=rendering_dict,
         num_provinces=provinces, num_cities=cities
     )
-    with codecs.open(os.path.join('README.md'), 'wb', 'utf-8') as f:
+    with codecs.open('README.md', 'wb', 'utf-8') as f:
         f.write(readme_txt)
+
+    # custom data structure
+    external = defaultdict(list)
+    for key, value in raw_rendering_dict.items():
+        if key != '直辖市':
+            for city in value:
+                external[key].append(city[0])
+    with codecs.open('structure.json', 'wb', 'utf-8') as f:
+        json.dump(external, f)
