@@ -1,6 +1,6 @@
 # echarts-china-cities-js
 
-[![Build Status](https://travis-ci.org/pyecharts/echarts-china-cities-js.svg?branch=master)](https://travis-ci.org/pyecharts/echarts-china-cities-js) [![npm version](https://badge.fury.io/js/echarts-china-cities-js.svg)](https://badge.fury.io/js/echarts-china-cities-js)
+[![Build Status](https://travis-ci.org/echarts-maps/echarts-china-cities-js.svg?branch=master)](https://travis-ci.org/echarts-maps/echarts-china-cities-js) [![npm version](https://badge.fury.io/js/echarts-china-cities-js.svg)](https://badge.fury.io/js/echarts-china-cities-js)
 
 It collects all geo-jsons in javascript of all {{num_cities}} provincial cities
 in {{num_provinces}} provinces and acts as a static asset to jupyter-echarts or your
@@ -26,7 +26,7 @@ npm i echarts-china-cities-js
 	  height: 100%;
 	  }
 	</style>
-  	<script src="https://pyecharts.github.io/jupyter-echarts/echarts/echarts.min.js"></script>
+  	<script src="https://echarts-maps.github.io/jupyter-echarts/echarts/echarts.min.js"></script>
 	<script src="https://echarts-maps.github.io/echarts-china-cities-js/echarts-china-cities-js/jiang1_xi1_nan2_chang1.js"></script>
   </head>
   <body>
@@ -52,7 +52,7 @@ Cities:
 {% for cprovince in registry.keys() %}
 {{loop.index}}. **{{cprovince}}**:
 {% for city in registry[cprovince] %}
-[{{city[0]}}](https://pyecharts.github.io/echarts-china-cities-js/echarts-china-cities-js/{{names[cprovince]}}_{{city[1]}}.js){% if not loop.last %}, {% endif %}{% endfor %}
+[{{city[0]}}](https://echarts-maps.github.io/echarts-china-cities-js/echarts-china-cities-js/{{names[cprovince]}}_{{city[1]}}.js){% if not loop.last %}, {% endif %}{% endfor %}
 
 {% endfor %}
 
