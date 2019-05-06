@@ -22,5 +22,17 @@
         {% endif %}
         {% endfor %}
         {% endfor %}
+    },
+    "GEOJSON_FILE_MAP": {
+        {% set comma = joiner(",") %}
+        {% for cprovince in geojson_registry.keys() %}
+        {% for city in geojson_registry[cprovince] %}
+        {% if cprovince in names %}
+        {{ comma() }} "{{city[1]}}": "{{names[cprovince]}}_{{city[1]}}"
+        {% else %}
+        {{ comma() }} "{{city[1]}}": "{{city[1]}}"
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
     }
 }

@@ -41,9 +41,12 @@ def minify_js(src_js, min_js):
     os.system('./node_modules/.bin/minify -o %s %s' % (min_js, src_js))
 
 
-if __name__ == '__main__':
-    name_dict = {}
-    raw_rendering_dict = defaultdict(list)
+def decompress_js(min_js, geojson):
+    os.system('./node_modules/.bin/decompress %s %s' % (min_js, geojson))
+
+
+def minify_srcs():
+    name_dict, raw_rendering_dict = {}, defaultdict(list)
     for folder in list_base('src/*'):
         cfolder = os.path.basename(folder)
         pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
@@ -58,6 +61,32 @@ if __name__ == '__main__':
             print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
             minify_js(src_file, _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))
+    return name_dict, raw_rendering_dict
+
+
+def decomporess():
+    name_dict, raw_rendering_dict = {}, defaultdict(list)
+    for folder in list_base('src/*'):
+        cfolder = os.path.basename(folder)
+        pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
+        _dest_folder = 'geojson'
+        name_dict[cfolder] = pfolder
+        if not os.path.exists(_dest_folder):
+            os.mkdir(_dest_folder)
+        all_files = list_a_directory(os.path.join(folder, "*.js"))
+        for src_file, cname, pname in all_files:
+            _dest_file = os.path.join(_dest_folder,
+                                      "%s_%s.geojson" % (pfolder, pname))
+            print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+            decompress_js(src_file, _dest_file)
+            raw_rendering_dict[cfolder].append((cname, pname))
+    return name_dict, raw_rendering_dict
+
+
+def doall():
+    name_dict, raw_rendering_dict = minify_srcs()
+    geojson_dict, geojson_rendering_dict = decomporess()
+
     # adding direct cities
     cnames = ['北京', '澳门', '重庆', '上海', '天津', '香港']
     cities = ['beijing', 'aomen', 'chongqing', 'shanghai',
@@ -73,6 +102,10 @@ if __name__ == '__main__':
         minify_js(src_file, _dest_file)
         print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
         raw_rendering_dict['直辖市'].append((cname, pname))
+        _geojson_file = os.path.join('echarts-china-cities-js', '%s.geojson' % pname)
+        decompress_js(src_file, _geojson_file)
+        print("%s-> %s, %s -> %s" % (cname, pname, src_file, _geojson_file))
+        geojson_rendering_dict['直辖市'].append((cname, pname))
     # statistics
     count = 0
     rendering_dict = OrderedDict()
@@ -96,7 +129,9 @@ if __name__ == '__main__':
         f.write(html)
 
     config = jinja2_env.get_template('config.json')
-    config_json = config.render(names=name_dict, registry=rendering_dict)
+    config_json = config.render(
+        names=name_dict, registry=rendering_dict,
+        geojson_registry=geojson_rendering_dict)
     registry_file = REGISTRY_FILE
     with codecs.open(registry_file, 'w', 'utf-8') as f:
         f.write(config_json)
@@ -117,3 +152,7 @@ if __name__ == '__main__':
                 external[key].append(city[0])
     with codecs.open('structure.json', 'wb', 'utf-8') as f:
         json.dump(external, f)
+
+
+if __name__ == '__main__':
+    doall()

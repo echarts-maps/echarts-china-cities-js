@@ -17,6 +17,10 @@
     "license": "MIT",
     "devDependencies": {
         "echarts": "^4.0.2",
-        "minifier": "^0.8.1"
+        "echarts-mapmaker": "^1.0.12",
+        "gulp": "^4.0.0",
+        "mapshaper": "^0.4.104",
+        "minifier": "^0.8.1",
+        "require-dir": "^1.2.0"
     }
 }
