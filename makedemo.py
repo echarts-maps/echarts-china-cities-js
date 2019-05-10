@@ -10,7 +10,8 @@ from jinja2 import Environment, FileSystemLoader
 import codecs
 from collections import OrderedDict
 
-DEST_FOLDER = 'echarts-china-cities-js'
+DEST_FOLDER = os.path.join('js', 'shape-with-internal-borders')
+DEST_GEOJSON_FOLDER = os.path.join('geojson', 'shape-with-internal-borders')
 REGISTRY_FILE = 'registry.json'
 
 MANUAL_FIX = {
@@ -69,7 +70,7 @@ def decomporess():
     for folder in list_base('src/*'):
         cfolder = os.path.basename(folder)
         pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
-        _dest_folder = 'geojson'
+        _dest_folder = DEST_GEOJSON_FOLDER
         name_dict[cfolder] = pfolder
         if not os.path.exists(_dest_folder):
             os.mkdir(_dest_folder)
@@ -83,40 +84,8 @@ def decomporess():
     return name_dict, raw_rendering_dict
 
 
-def doall():
-    name_dict, raw_rendering_dict = minify_srcs()
-    geojson_dict, geojson_rendering_dict = decomporess()
-
-    # adding direct cities
-    cnames = ['北京', '澳门', '重庆', '上海', '天津', '香港']
-    cities = ['beijing', 'aomen', 'chongqing', 'shanghai',
-              'tianjin', 'xianggang']
-    for cname, pname in zip(cnames, cities):
-        src_file = os.path.join('node_modules',
-                                'echarts',
-                                'map',
-                                'js',
-                                'province',
-                                '%s.js' % pname)
-        _dest_file = os.path.join('echarts-china-cities-js', '%s.js' % pname)
-        minify_js(src_file, _dest_file)
-        print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
-        raw_rendering_dict['直辖市'].append((cname, pname))
-        _geojson_file = os.path.join('geojson', '%s.geojson' % pname)
-        decompress_js(src_file, _geojson_file)
-        print("%s-> %s, %s -> %s" % (cname, pname, src_file, _geojson_file))
-        geojson_rendering_dict['直辖市'].append((cname, pname))
-    # statistics
-    count = 0
-    rendering_dict = OrderedDict()
-    sorted_provinces = sorted(raw_rendering_dict.keys(),
-                              key=lambda x: pinyin.get(x, format='numerical'))
-    for cprovince in sorted_provinces:
-        count += len(raw_rendering_dict[cprovince])
-        rendering_dict[cprovince] = sorted(
-            raw_rendering_dict[cprovince], key=lambda x: x[1])
-    provinces, cities = len(rendering_dict.keys()), count
-
+def write_preview(name_dict, rendering_dict, provinces,
+                  cities, geojson_rendering_dict):
     jinja2_env = Environment(
         loader=FileSystemLoader('./templates'),
         keep_trailing_newline=True,
@@ -124,8 +93,15 @@ def doall():
         lstrip_blocks=True)
     template = jinja2_env.get_template('index.html')
     html = template.render(names=name_dict, registry=rendering_dict,
+                           js_folder="js/shape-with-internal-borders",
                            num_cities=cities)
     with codecs.open('preview.html', 'wb', 'utf-8') as f:
+        f.write(html)
+
+    html = template.render(names=name_dict, registry=rendering_dict,
+                           js_folder="js/shape-only",
+                           num_cities=cities)
+    with codecs.open('shape-only-preview.html', 'wb', 'utf-8') as f:
         f.write(html)
 
     config = jinja2_env.get_template('config.json')
@@ -143,6 +119,43 @@ def doall():
     )
     with codecs.open('README.md', 'wb', 'utf-8') as f:
         f.write(readme_txt)
+
+
+def doall():
+    name_dict, raw_rendering_dict = minify_srcs()
+    geojson_dict, geojson_rendering_dict = decomporess()
+
+    # adding direct cities
+    cnames = ['北京', '澳门', '重庆', '上海', '天津', '香港']
+    cities = ['beijing', 'aomen', 'chongqing', 'shanghai',
+              'tianjin', 'xianggang']
+    for cname, pname in zip(cnames, cities):
+        src_file = os.path.join('node_modules',
+                                'echarts',
+                                'map',
+                                'js',
+                                'province',
+                                '%s.js' % pname)
+        _dest_file = os.path.join(DEST_FOLDER, '%s.js' % pname)
+        minify_js(src_file, _dest_file)
+        print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+        raw_rendering_dict['直辖市'].append((cname, pname))
+        _geojson_file = os.path.join(DEST_GEOJSON_FOLDER, '%s.geojson' % pname)
+        decompress_js(src_file, _geojson_file)
+        print("%s-> %s, %s -> %s" % (cname, pname, src_file, _geojson_file))
+        geojson_rendering_dict['直辖市'].append((cname, pname))
+    # statistics
+    count = 0
+    rendering_dict = OrderedDict()
+    sorted_provinces = sorted(raw_rendering_dict.keys(),
+                              key=lambda x: pinyin.get(x, format='numerical'))
+    for cprovince in sorted_provinces:
+        count += len(raw_rendering_dict[cprovince])
+        rendering_dict[cprovince] = sorted(
+            raw_rendering_dict[cprovince], key=lambda x: x[1])
+    provinces, cities = len(rendering_dict.keys()), count
+
+    write_preview(name_dict, rendering_dict, provinces, cities, geojson_rendering_dict)
 
     # custom data structure
     external = defaultdict(list)
