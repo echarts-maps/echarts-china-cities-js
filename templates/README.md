@@ -6,6 +6,11 @@ It collects all geo-jsons in javascript of all {{num_cities}} provincial cities
 in {{num_provinces}} provinces and acts as a static asset to jupyter-echarts or your
 echarts collection.
 
+## Feature highlights
+
+1. City shape with and without internal borders
+1. City shape in js and json formats.
+
 
 ## Installation
 
@@ -26,8 +31,8 @@ npm i echarts-china-cities-js
 	  height: 100%;
 	  }
 	</style>
-  	<script src="https://echarts-maps.github.io/jupyter-echarts/echarts/echarts.min.js"></script>
-	<script src="https://echarts-maps.github.io/echarts-china-cities-js/echarts-china-cities-js/jiang1_xi1_nan2_chang1.js"></script>
+  	<script src="https://echarts-maps.github.io/echarts-china-cities-js/echarts.min.js"></script>
+	<script src="https://echarts-maps.github.io/echarts-china-cities-js/js/shape-with-internal-borders/jiang1_xi1_nan2_chang1.js"></script>
   </head>
   <body>
 	<div id='nan2_chang1' class='citymap'></div>
@@ -66,7 +71,13 @@ Please use python
 $ pip install -r requirements
 $ npm install
 $ python makedemo.py
+$ gulp
 ```
+
+## data flow
+
+1. makedemo: src -> geojson and js folder with shapes
+2. gulp: geojson -> shape-only js and geojson
 
 ## Test
 
