@@ -17,9 +17,9 @@
 	<!-- {{cprovince}} -->
 	{% for city in registry[cprovince] %}
 	{% if cprovince in names %}
-	<script src="echarts-china-cities-js/{{js_folder}}/{{names[cprovince]}}_{{city[1]}}.js"></script>
+	<script src="{{js_folder}}/{{names[cprovince]}}_{{city[1]}}.js"></script>
 	{% else %}
-	<script src="echarts-china-cities-js/{{js_folder}}/{{city[1]}}.js"></script>
+	<script src="{{js_folder}}/{{city[1]}}.js"></script>
 	{% endif %}
 	{% endfor %}
 	{% endfor %}
