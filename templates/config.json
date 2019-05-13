@@ -2,12 +2,14 @@
     "JUPYTER_URL": "/nbextensions/echarts-china-cities-js",
     "GITHUB_URL": "https://echarts-maps.github.io/echarts-china-cities-js",
     "JUPYTER_ENTRY": "echarts-china-cities-js/index",
-    "JS_FOLDER": "js/shape-with-internal-borders",
+    "JS_FOLDER": "js",
+    "GEOJSON_FOLDER": "geojson",
     "PINYIN_MAP": {
         {% set comma = joiner(",") %}
         {% for cprovince in registry.keys() %}
         {% for city in registry[cprovince] %}
         {{ comma() }} "{{city[0]}}": "{{city[1]}}"
+        {{ comma() }} "{{city[0]}}轮廓": "{{city[1]}}_shape_only"
         {% endfor %}
         {% endfor %}
     },
@@ -16,9 +18,11 @@
         {% for cprovince in registry.keys() %}
         {% for city in registry[cprovince] %}
         {% if cprovince in names %}
-        {{ comma() }} "{{city[1]}}": "{{names[cprovince]}}_{{city[1]}}"
+        {{ comma() }} "{{city[1]}}": "shape-with-internal-borders/{{names[cprovince]}}_{{city[1]}}"
+        {{ comma() }} "{{city[1]}}_shape_only": "shape-only/{{names[cprovince]}}_{{city[1]}}"
         {% else %}
-        {{ comma() }} "{{city[1]}}": "{{city[1]}}"
+        {{ comma() }} "{{city[1]}}": "shape-with-internal-borders/{{city[1]}}"
+        {{ comma() }} "{{city[1]}}_shape_only": "shape-only/{{city[1]}}"
         {% endif %}
         {% endfor %}
         {% endfor %}
@@ -28,9 +32,11 @@
         {% for cprovince in geojson_registry.keys() %}
         {% for city in geojson_registry[cprovince] %}
         {% if cprovince in names %}
-        {{ comma() }} "{{city[1]}}": "{{names[cprovince]}}_{{city[1]}}"
+        {{ comma() }} "{{city[1]}}": "shape-with-internal-borders/{{names[cprovince]}}_{{city[1]}}"
+        {{ comma() }} "{{city[1]}}_shape_only": "shape-only/{{names[cprovince]}}_{{city[1]}}"
         {% else %}
-        {{ comma() }} "{{city[1]}}": "{{city[1]}}"
+        {{ comma() }} "{{city[1]}}": "shape-with-internal-borders/{{city[1]}}"
+        {{ comma() }} "{{city[1]}}_shape_only": "shape-only/{{city[1]}}"
         {% endif %}
         {% endfor %}
         {% endfor %}
