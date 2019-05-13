@@ -6,25 +6,29 @@ const mapshaper = require('mapshaper');
 
 gulp.task('removeBorder', async () => {
 
-  const folder = 'geojson/shape-with-internal-borders';
-  const output = 'geojson/shape-only';
-  const jsfolder = 'js/shape-only';
+  const folder = 'geojson';
+  const output = 'geojson';
+  const jsfolder = 'js';
   
   const data = fs.readFileSync('registry.json', 'utf8');
   const myjson = JSON.parse(data);
 
   for(const city of Object.keys(myjson.PINYIN_MAP)){
-    let pinying = myjson.PINYIN_MAP[city];
-    let filename = myjson.FILE_MAP[pinying];
-    let geojson = folder + '/' + filename + '.geojson';
-    let dest = output + '/' + filename + '.geojson';
-    let js = jsfolder + '/' + filename + '.js';
-    try{
-      await disolve_internal_borders(geojson, dest, js, city);
-      console.log(`${geojson} -> ${dest}`);
-    }catch(err){
-      console.log(err);
-      console.log(`error: ${geojson} -> ${dest}`);    
+    if(city.indexOf("轮廓") === -1){
+      let from = myjson.PINYIN_MAP[city];
+      let from_filename = myjson.FILE_MAP[from];
+      let to = myjson.PINYIN_MAP[city+"轮廓"];
+      let to_filename = myjson.FILE_MAP[to];
+      let shape_with_internal_borders = folder + '/' + from_filename + '.geojson';
+      let shape_only = output + '/' + to_filename + '.geojson';
+      let js = jsfolder + '/' + to_filename + '.js';
+      try{
+        await disolve_internal_borders(shape_with_internal_borders, shape_only, js, city);
+        console.log(`${shape_with_internal_borders} -> ${shape_only}`);
+      }catch(err){
+        console.log(err);
+        console.log(`error: ${shape_with_internal_borders} -> ${shape_only}`);
+      }
     }
   }
 });
@@ -37,7 +41,7 @@ async function disolve_internal_borders(geojson_file, output_file, js, map_name)
   fs.writeFileSync(geojsonFile, JSON.stringify(geojson));
   await disolve(geojsonFile +' -dissolve2 -o tmp.geojson');
   maker.transform('tmp.geojson', output_file, map_name);
-  maker.makeJs(output_file, js, map_name);
+  maker.makeJs(output_file, js, map_name+"轮廓");
 }
 
 function disolve(command){
