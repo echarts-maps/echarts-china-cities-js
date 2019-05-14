@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{%block map%}	
+  {% for cprovince in registry.keys() %}
+  <h2>{{cprovince}} - {{names[cprovince]}}</h2>
+  <table>
+	<tr>
+	  {% for city in registry[cprovince] %}
+	  <td><div id="{{city[1]}}" class="citymap"></div></td>
+	  {% if loop.index % 4 == 0 %}
+	  </tr><tr>
+	  {% endif %}
+	  {% endfor %}
+	</tr>
+  </table>
+  {% endfor %}
+
+  <script src="demo.js"></script>
+  <script>
+  {% for cprovince in registry.keys() %}
+	<!-- {{cprovince}} -->
+	{% for city in registry[cprovince] %}
+	make_city('{{city[0]}}轮廓', '{{city[1]}}');
+	{% endfor %}
+	{% endfor %}
+  </script>
+{% endblock %}

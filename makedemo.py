@@ -98,6 +98,7 @@ def write_preview(name_dict, rendering_dict, provinces,
     with codecs.open('preview.html', 'wb', 'utf-8') as f:
         f.write(html)
 
+    template = jinja2_env.get_template('shape-only.html')
     html = template.render(names=name_dict, registry=rendering_dict,
                            js_folder="js/shape-only",
                            num_cities=cities)

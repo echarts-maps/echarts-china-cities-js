@@ -25,6 +25,7 @@
 	{% endfor %}
 </head>
 <body>
+{%block map%}	
   {% for cprovince in registry.keys() %}
   <h2>{{cprovince}} - {{names[cprovince]}}</h2>
   <table>
@@ -48,3 +49,6 @@
 	{% endfor %}
 	{% endfor %}
   </script>
+{% endblock %}
+</body>
+</html>
