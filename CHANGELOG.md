@@ -1,5 +1,11 @@
 # Change log
 
+## 0.1.2 - 17.05.2019
+
+1. add shape only objects
+2. add geojson objects
+3. fix #3: where ji zhou district is missing from Tian jin map.
+	
 ## 0.1.1 - 04.03.2018
 
 Minified all six newly added cities
