@@ -6,6 +6,10 @@ It collects all geo-jsons in javascript of all 370 provincial cities
 in 28 provinces and acts as a static asset to jupyter-echarts or your
 echarts collection.
 
+!!! note
+
+   This repo is not associated with Apache ECharts (incubating) project
+
 ## Feature highlights
 
 1. City shape with and without internal borders
