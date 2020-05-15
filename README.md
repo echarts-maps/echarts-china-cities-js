@@ -149,6 +149,8 @@ hence are subjected to AMap's [service and content license](https://lbs.amap.com
 making commercial applications using the files in this package. No Liability nor Guarantee were
 given for any error or flaws in the downloaded files.
 
+This projects is NOT associated with official Apache ECharts (incubating) project and are independently maintained by @chfw.
+
 ### Free usage instructions
 
 Similiar to google's map data, it is free as long as the public's access to your files
