@@ -149,7 +149,7 @@ hence are subjected to AMap's [service and content license](https://lbs.amap.com
 making commercial applications using the files in this package. No Liability nor Guarantee were
 given for any error or flaws in the downloaded files.
 
-This projects is NOT associated with official Apache ECharts (incubating) project and are independently maintained by @chfw.
+This projects is NOT associated with official Apache ECharts (incubating) project and is independently maintained by [@chfw](https://github.com/chfw).
 
 ### Free usage instructions
 
