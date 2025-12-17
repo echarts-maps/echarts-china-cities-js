@@ -59,6 +59,7 @@ npm i echarts-china-cities-js
 
 Cities:
 {% for cprovince in registry.keys() %}
+
 {{loop.index}}. **{{cprovince}}**:
 {% for city in registry[cprovince] %}
 {% if cprovince in names %}
