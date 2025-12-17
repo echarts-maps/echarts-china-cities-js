@@ -9,6 +9,7 @@ from collections import defaultdict
 from jinja2 import Environment, FileSystemLoader
 import codecs
 from collections import OrderedDict
+import shutil
 
 DEST_FOLDER = os.path.join('js', 'shape-with-internal-borders')
 DEST_GEOJSON_FOLDER = os.path.join('geojson', 'shape-with-internal-borders')
@@ -130,6 +131,7 @@ def doall():
     cnames = ['北京', '澳门', '重庆', '上海', '天津', '香港']
     cities = ['beijing', 'aomen', 'chongqing', 'shanghai',
               'tianjin', 'xianggang']
+    compressed_cities = [ '重庆', '上海',]
     for cname, pname in zip(cnames, cities):
         src_file = os.path.join('node_modules',
                                 'echarts',
@@ -138,13 +140,27 @@ def doall():
                                 'province',
                                 '%s.js' % pname)
         _dest_file = os.path.join(DEST_FOLDER, '%s.js' % pname)
-        minify_js(src_file, _dest_file)
-        print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
         raw_rendering_dict['直辖市'].append((cname, pname))
-        _geojson_file = os.path.join(DEST_GEOJSON_FOLDER, '%s.geojson' % pname)
-        decompress_js(src_file, _geojson_file)
-        print("%s-> %s, %s -> %s" % (cname, pname, src_file, _geojson_file))
         geojson_rendering_dict['直辖市'].append((cname, pname))
+        if cname in compressed_cities:
+            shutil.copy(src_file, _dest_file)
+            print("copy: %s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+            geojson_src = os.path.join('node_modules',
+                                'echarts',
+                                'map',
+                                'json',
+                                'province',
+                                '%s.json' % pname)
+
+            _geojson_file = os.path.join(DEST_GEOJSON_FOLDER, '%s.geojson' % pname)
+            shutil.copy(geojson_src, _geojson_file)
+            print("copy: %s-> %s, %s -> %s" % (cname, pname, geojson_src, _geojson_file))
+        else:
+            minify_js(src_file, _dest_file)
+            print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+            _geojson_file = os.path.join(DEST_GEOJSON_FOLDER, '%s.geojson' % pname)
+            decompress_js(src_file, _geojson_file)
+            print("%s-> %s, %s -> %s" % (cname, pname, src_file, _geojson_file))
     # statistics
     count = 0
     rendering_dict = OrderedDict()
