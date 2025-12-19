@@ -1,7 +1,7 @@
 <!Doctype html>
 <html>
 <head>
-    <title>370 Chinese provincial cities Map Demo</title>
+    <title>392 Chinese provincial cities Map Demo</title>
     <meta charset="utf-8" />
 	<style>
 	  .citymap{
@@ -343,6 +343,29 @@
 	<script src="js/shape-only/si4_chuan1_yi2_bin1.js"></script>
 	<script src="js/shape-only/si4_chuan1_zi1_yang2.js"></script>
 	<script src="js/shape-only/si4_chuan1_zi4_gong4.js"></script>
+	<!-- 台湾 -->
+	<script src="js/shape-only/tai2_wan1_gao1_xiong2.js"></script>
+	<script src="js/shape-only/tai2_wan1_hua1_lian2_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_ji1_long2.js"></script>
+	<script src="js/shape-only/tai2_wan1_jia1_yi4.js"></script>
+	<script src="js/shape-only/tai2_wan1_jia1_yi4_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_jin1_men2_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_lian2_jiang1_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_miao2_li4_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_nan2_tou2_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_peng2_hu2_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_ping2_dong1_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_tai2_bei3.js"></script>
+	<script src="js/shape-only/tai2_wan1_tai2_dong1_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_tai2_nan2.js"></script>
+	<script src="js/shape-only/tai2_wan1_tai2_zhong1.js"></script>
+	<script src="js/shape-only/tai2_wan1_tao2_yuan2.js"></script>
+	<script src="js/shape-only/tai2_wan1_xin1_bei3.js"></script>
+	<script src="js/shape-only/tai2_wan1_xin1_zhu2.js"></script>
+	<script src="js/shape-only/tai2_wan1_xin1_zhu2_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_yi2_lan2_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_yun2_lin2_xian4.js"></script>
+	<script src="js/shape-only/tai2_wan1_zhang1_hua4_xian4.js"></script>
 	<!-- 西藏 -->
 	<script src="js/shape-only/xi1_cang2_a1_li3_di4_qu1.js"></script>
 	<script src="js/shape-only/xi1_cang2_chang1_du1.js"></script>
@@ -904,6 +927,38 @@
 	  <td><div id="zi4_gong4" class="citymap"></div></td>
 	</tr>
   </table>
+  <h2>台湾 - tai2_wan1</h2>
+  <table>
+	<tr>
+	  <td><div id="gao1_xiong2" class="citymap"></div></td>
+	  <td><div id="hua1_lian2_xian4" class="citymap"></div></td>
+	  <td><div id="ji1_long2" class="citymap"></div></td>
+	  <td><div id="jia1_yi4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="jia1_yi4_xian4" class="citymap"></div></td>
+	  <td><div id="jin1_men2_xian4" class="citymap"></div></td>
+	  <td><div id="lian2_jiang1_xian4" class="citymap"></div></td>
+	  <td><div id="miao2_li4_xian4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="nan2_tou2_xian4" class="citymap"></div></td>
+	  <td><div id="peng2_hu2_xian4" class="citymap"></div></td>
+	  <td><div id="ping2_dong1_xian4" class="citymap"></div></td>
+	  <td><div id="tai2_bei3" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="tai2_dong1_xian4" class="citymap"></div></td>
+	  <td><div id="tai2_nan2" class="citymap"></div></td>
+	  <td><div id="tai2_zhong1" class="citymap"></div></td>
+	  <td><div id="tao2_yuan2" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="xin1_bei3" class="citymap"></div></td>
+	  <td><div id="xin1_zhu2" class="citymap"></div></td>
+	  <td><div id="xin1_zhu2_xian4" class="citymap"></div></td>
+	  <td><div id="yi2_lan2_xian4" class="citymap"></div></td>
+	  </tr><tr>
+	  <td><div id="yun2_lin2_xian4" class="citymap"></div></td>
+	  <td><div id="zhang1_hua4_xian4" class="citymap"></div></td>
+	</tr>
+  </table>
   <h2>西藏 - xi1_cang2</h2>
   <table>
 	<tr>
@@ -1338,6 +1393,29 @@
 	make_city('宜宾轮廓', 'yi2_bin1');
 	make_city('资阳轮廓', 'zi1_yang2');
 	make_city('自贡轮廓', 'zi4_gong4');
+	<!-- 台湾 -->
+	make_city('高雄轮廓', 'gao1_xiong2');
+	make_city('花蓮縣轮廓', 'hua1_lian2_xian4');
+	make_city('基隆轮廓', 'ji1_long2');
+	make_city('嘉義轮廓', 'jia1_yi4');
+	make_city('嘉義縣轮廓', 'jia1_yi4_xian4');
+	make_city('金門縣轮廓', 'jin1_men2_xian4');
+	make_city('連江縣轮廓', 'lian2_jiang1_xian4');
+	make_city('苗栗縣轮廓', 'miao2_li4_xian4');
+	make_city('南投縣轮廓', 'nan2_tou2_xian4');
+	make_city('澎湖縣轮廓', 'peng2_hu2_xian4');
+	make_city('屏東縣轮廓', 'ping2_dong1_xian4');
+	make_city('臺北轮廓', 'tai2_bei3');
+	make_city('臺東縣轮廓', 'tai2_dong1_xian4');
+	make_city('臺南轮廓', 'tai2_nan2');
+	make_city('臺中轮廓', 'tai2_zhong1');
+	make_city('桃園轮廓', 'tao2_yuan2');
+	make_city('新北轮廓', 'xin1_bei3');
+	make_city('新竹轮廓', 'xin1_zhu2');
+	make_city('新竹縣轮廓', 'xin1_zhu2_xian4');
+	make_city('宜蘭縣轮廓', 'yi2_lan2_xian4');
+	make_city('雲林縣轮廓', 'yun2_lin2_xian4');
+	make_city('彰化縣轮廓', 'zhang1_hua4_xian4');
 	<!-- 西藏 -->
 	make_city('阿里地区轮廓', 'a1_li3_di4_qu1');
 	make_city('昌都轮廓', 'chang1_du1');

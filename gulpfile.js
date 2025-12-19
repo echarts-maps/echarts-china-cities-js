@@ -6,7 +6,6 @@ require('require-dir')('build/tasks');
 
 const TASKS = [
   'patchTianjin',
-  'removeBorder'
 ];
 
 gulp.task("default", TASKS);

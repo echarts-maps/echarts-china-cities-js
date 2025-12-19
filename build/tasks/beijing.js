@@ -35,11 +35,11 @@ gulp.task('removeBorder', async () => {
 
 
 async function disolve_internal_borders(geojson_file, output_file, js, map_name){
-  const utf8EncodedGeoJson = JSON.parse(fs.readFileSync(geojson_file, 'utf8'));
-  const geojsonFile = 'decoded.geojson';
-  geojson = parser.decode(utf8EncodedGeoJson);
-  fs.writeFileSync(geojsonFile, JSON.stringify(geojson));
-  await disolve(geojsonFile +' -dissolve2 -o tmp.geojson');
+  //const utf8EncodedGeoJson = JSON.parse(fs.readFileSync(geojson_file, 'utf8'));
+  //const geojsonFile = 'decoded.geojson';
+  //geojson = parser.decode(utf8EncodedGeoJson);
+  //fs.writeFileSync(geojsonFile, JSON.stringify(geojson));
+  await disolve(geojson_file +' -dissolve2 -o tmp.geojson');
   maker.transform('tmp.geojson', output_file, map_name);
   maker.makeJs(output_file, js, map_name+"轮廓");
 }
