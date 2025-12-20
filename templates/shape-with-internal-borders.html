@@ -31,7 +31,16 @@
   <table>
 	<tr>
 	  {% for city in registry[cprovince] %}
-	  <td><div id="{{city[1]}}" class="citymap"></div></td>
+	  <td>
+	    <div id="{{cprovince}}{{city[1]}}">
+	    {% if cprovince in names %}
+	    <a href="https://echarts-maps.github.io/echarts-china-cities-js/js/shape-with-internal-borders/{{names[cprovince]}}_{{city[1]}}.js">Download</a>
+	    {% else %}
+	    <a href="https://echarts-maps.github.io/echarts-china-cities-js/js/shape-with-internal-borders/{{city[1]}}.js">Download</a>
+	    {% endif %}
+	    <a href="#{{cprovince}}{{city[1]}}">
+	    </div>
+	    <div id="{{city[1]}}" class="citymap"></div></td>
 	  {% if loop.index % 4 == 0 %}
 	  </tr><tr>
 	  {% endif %}

@@ -62,11 +62,7 @@ Cities:
 
 {{loop.index}}. **{{cprovince}}**:
 {% for city in registry[cprovince] %}
-{% if cprovince in names %}
-[{{city[0]}}](https://echarts-maps.github.io/echarts-china-cities-js/js/shape-with-internal-borders/{{names[cprovince]}}_{{city[1]}}.js){% if not loop.last %}, {% endif %}
-{% else %}
-[{{city[0]}}](https://echarts-maps.github.io/echarts-china-cities-js/js/shape-with-internal-borders/{{city[1]}}.js){% if not loop.last %}, {% endif %}
-{% endif %}
+[{{city[0]}}](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#{{cprovince}}{{city[1]}}){% if not loop.last %}, {% endif %}
 {% endfor %}
 {% endfor %}
 

@@ -1,5 +1,9 @@
 # Change log
 
+## 0.1.4 - 20.12.2025
+
+1. #8 move cang zhou from he nan to he bei
+
 ## 0.1.3 - 19.12.2025
 
 1. #7 add taiwan geo shapes
