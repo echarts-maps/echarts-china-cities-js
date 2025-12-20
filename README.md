@@ -8,7 +8,7 @@ echarts collection.
 
 !!! note
 
-   This repo is not associated with Apache ECharts (incubating) project
+   This repo is not associated with Apache ECharts project
 
 ## Feature highlights
 
@@ -36,19 +36,19 @@ npm i echarts-china-cities-js
 	  }
 	</style>
   	<script src="https://echarts-maps.github.io/echarts-china-cities-js/echarts.min.js"></script>
-	<script src="https://echarts-maps.github.io/echarts-china-cities-js/js/shape-with-internal-borders/jiang1_xi1_nan2_chang1.js"></script>
+	<script src="/js/shape-with-internal-borders/tai2_wan1_tai2_bei3.js"></script>
   </head>
   <body>
-	<div id='nan2_chang1' class='citymap'></div>
+	<div id='demo' class='citymap'></div>
 	<script src='https://echarts-maps.github.io/echarts-china-cities-js/demo.js'></script>
 	<script>
-	  make_city('南昌', 'nan2_chang1');
+	  make_city('臺北', 'demo');
 	</script>
   </body>
 </html>
 ```
 
-![Usage with echarts](https://echarts-maps.github.io/echarts-china-cities-js/nanchang.png)
+![Usage with echarts](https://github.com/user-attachments/assets/0d06ee36-0171-467a-a89d-94036064b929)
 
 ## pyecharts usage
 
@@ -133,7 +133,7 @@ $ gulp
 ## data flow
 
 1. makedemo: src -> geojson and js folder with shapes
-2. gulp: geojson -> shape-only js and geojson
+2. gulp: tianjin fix only
 
 ## Test
 
@@ -157,4 +157,8 @@ Similiar to google's map data, it is free as long as the public's access to your
 are free. 
 
 This bundling code(makedemo.py) is MIT license.
+
+### Taiwan map
+
+It comes from this link: https://data.gov.tw/dataset/7441 and is protected under [Open Government Data License, version 1.0](https://data.gov.tw/en/license)
 
