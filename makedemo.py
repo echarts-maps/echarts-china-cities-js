@@ -188,7 +188,17 @@ def write_preview(name_dict, rendering_dict, provinces, cities, geojson_renderin
         js_folder="js/shape-with-internal-borders",
         num_cities=cities,
     )
-    with codecs.open("preview.html", "wb", "utf-8") as f:
+    with codecs.open("index.html", "wb", "utf-8") as f:
+        f.write(html)
+
+    template = jinja2_env.get_template("shape-with-internal-borders.html")
+    html = template.render(
+        names=name_dict,
+        registry=rendering_dict,
+        js_folder="js/shape-with-internal-borders",
+        num_cities=cities,
+    )
+    with codecs.open("shape-with-internal-borders.html", "wb", "utf-8") as f:
         f.write(html)
 
     template = jinja2_env.get_template("shape-only.html")
@@ -282,8 +292,6 @@ def doall():
     provinces, cities = len(rendering_dict.keys()), count
 
     write_preview(name_dict, rendering_dict, provinces, cities, geojson_rendering_dict)
-
-    remove_internal_borders()
 
     # custom data structure
     external = defaultdict(list)

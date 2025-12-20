@@ -1,54 +1,59 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>{{num_cities}} Chinese provincial cities Map Demo</title>
-    <meta charset="utf-8" />
-	<style>
-	  .citymap{
-	  width: 300px;
-	  height: 300px;
-	  }
-	  body {
-	  background-color: #eee;
-	  }
-	</style>
-	<script src="echarts.min.js"></script>
-	{% for cprovince in registry.keys() %}
-	<!-- {{cprovince}} -->
-	{% for city in registry[cprovince] %}
-	{% if cprovince in names %}
-	<script src="{{js_folder}}/{{names[cprovince]}}_{{city[1]}}.js"></script>
-	{% else %}
-	<script src="{{js_folder}}/{{city[1]}}.js"></script>
-	{% endif %}
-	{% endfor %}
-	{% endfor %}
-</head>
-<body>
-{%block map%}	
-  {% for cprovince in registry.keys() %}
-  <h2>{{cprovince}} - {{names[cprovince]}}</h2>
-  <table>
-	<tr>
-	  {% for city in registry[cprovince] %}
-	  <td><div id="{{city[1]}}" class="citymap"></div></td>
-	  {% if loop.index % 4 == 0 %}
-	  </tr><tr>
-	  {% endif %}
-	  {% endfor %}
-	</tr>
-  </table>
-  {% endfor %}
+    <head>
+        <title>echarts-china-cities-js</title>
+		<!-- Place this tag in your head or just before your close body tag. -->
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+        <style>
 
-  <script src="demo.js"></script>
-  <script>
-  {% for cprovince in registry.keys() %}
-	<!-- {{cprovince}} -->
-	{% for city in registry[cprovince] %}
-	make_city('{{city[0]}}', '{{city[1]}}');
-	{% endfor %}
-	{% endfor %}
-  </script>
-{% endblock %}
-</body>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        body {
+            display: table;
+		    background-image: url("wallpaper.jpg");
+            background-repeat: no-repeat;
+	        background-position: left top;
+	        background-attachment: fixed;
+        }
+
+        .my-block {
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+		.big {
+		    font-size: 68px;
+		    color:white;
+		}
+		.medium{
+    		font-size: 32px;
+	    	color:white;
+		}
+		.inner-block{
+		    background: rgb(54, 54, 54); /* The Fallback */
+            background: rgba(54, 54, 54, 0.5); 
+		}
+		a {
+		color:white;
+		}
+        </style>
+    </head>
+    <body>
+	  <a href="https://github.com/pyecharts/echarts-china-cities-js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+      <div class="my-block">
+		<div class="inner-block">
+			<span class="big">Preview {{num_cities}} Chinese city maps (12MB in total)</span><p>
+			<span class="medium"><a href="shape-with-internal-borders.html.html">with internal borders</a> or <a href="shape-only-preview.html">shape-only</a><p>
+			<a class="github-button" href="https://github.com/pyecharts/echarts-china-cities-js/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork pyecharts/echarts-china-cities-js on GitHub">Fork</a>
+			<a class="github-button" href="https://github.com/pyecharts/echarts-china-cities-js" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star pyecharts/echarts-china-cities-js on GitHub">Star</a><p>
+			<span class="medium">https://echarts-maps.github.io/echarts-china-cities-js</span>
+
+		</div>
+      </div>
+    </body>
 </html>

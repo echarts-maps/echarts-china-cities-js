@@ -1,0 +1,54 @@
+<!Doctype html>
+<html>
+<head>
+    <title>{{num_cities}} Chinese provincial cities Map Demo</title>
+    <meta charset="utf-8" />
+	<style>
+	  .citymap{
+	  width: 300px;
+	  height: 300px;
+	  }
+	  body {
+	  background-color: #eee;
+	  }
+	</style>
+	<script src="echarts.min.js"></script>
+	{% for cprovince in registry.keys() %}
+	<!-- {{cprovince}} -->
+	{% for city in registry[cprovince] %}
+	{% if cprovince in names %}
+	<script src="{{js_folder}}/{{names[cprovince]}}_{{city[1]}}.js"></script>
+	{% else %}
+	<script src="{{js_folder}}/{{city[1]}}.js"></script>
+	{% endif %}
+	{% endfor %}
+	{% endfor %}
+</head>
+<body>
+{%block map%}	
+  {% for cprovince in registry.keys() %}
+  <h2>{{cprovince}} - {{names[cprovince]}}</h2>
+  <table>
+	<tr>
+	  {% for city in registry[cprovince] %}
+	  <td><div id="{{city[1]}}" class="citymap"></div></td>
+	  {% if loop.index % 4 == 0 %}
+	  </tr><tr>
+	  {% endif %}
+	  {% endfor %}
+	</tr>
+  </table>
+  {% endfor %}
+
+  <script src="demo.js"></script>
+  <script>
+  {% for cprovince in registry.keys() %}
+	<!-- {{cprovince}} -->
+	{% for city in registry[cprovince] %}
+	make_city('{{city[0]}}', '{{city[1]}}');
+	{% endfor %}
+	{% endfor %}
+  </script>
+{% endblock %}
+</body>
+</html>
