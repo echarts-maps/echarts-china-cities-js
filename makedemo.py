@@ -26,6 +26,8 @@ CUSTOM_PINYIN = {
     "香港": "xianggang",
 }
 
+def log(words):
+    print(words)
 
 def get_pinyin(place):
     if place in CUSTOM_PINYIN:
@@ -53,7 +55,7 @@ def list_a_directory(src_folder):
 
 def make_js(geojson, js, chinese_name):
     command = "./node_modules/.bin/makejs %s %s %s" % (geojson, js, chinese_name)
-    print(command)
+    log(command)
     os.system(command)
 
 
@@ -77,7 +79,7 @@ def remove_internal_borders():
         for city in pinyin_map:
             if contour in city:
                 continue
-            print(f"Processing {city}")
+            log(f"Processing {city}")
             fm = pinyin_map[city]
             fm_filename = registry["FILE_MAP"][fm]
             to = pinyin_map[city + contour]
@@ -90,10 +92,10 @@ def remove_internal_borders():
                 disolve_internal_borders(
                     shape_with_internal_borders, shape_only, js, city
                 )
-                print(f"{shape_with_internal_borders} -> {shape_only}")
+                log(f"{shape_with_internal_borders} -> {shape_only}")
             except Exception as e:
-                print(e)
-                print(f"error : {shape_with_internal_borders} -> {shape_only}")
+                log(e)
+                log(f"error : {shape_with_internal_borders} -> {shape_only}")
 
 
 def disolve_internal_borders(shape, shape_only, js, city):
@@ -133,7 +135,7 @@ def minify_srcs():
             else:
                 _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
             if not DRY_RUN:
-                print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+                log("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 minify_js(src_file, _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))
     return name_dict, raw_rendering_dict
@@ -155,7 +157,7 @@ def minify_geojson():
             else:
                 _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
             if not DRY_RUN:
-                print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+                log("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 make_js(src_file, "tw_tmp.js", cname)
                 minify_js("tw_tmp.js", _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))
@@ -180,7 +182,7 @@ def decomporess():
                     _dest_folder, "%s_%s.geojson" % (pfolder, pname)
                 )
             if not DRY_RUN:
-                print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+                log("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 decompress_js(src_file, _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))
     return name_dict, raw_rendering_dict
@@ -199,7 +201,7 @@ def decomporess_geojson():
         for src_file, cname, pname in all_files:
             _dest_file = os.path.join(_dest_folder, "%s_%s.geojson" % (pfolder, pname))
             if not DRY_RUN:
-                print("copy: %s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
+                log("copy: %s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 shutil.copy(src_file, _dest_file)
             raw_rendering_dict[cfolder].append((cname, pname))
     return name_dict, raw_rendering_dict
