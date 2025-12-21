@@ -19,7 +19,7 @@
         "echarts": "^6.0.0",
         "echarts-mapmaker": "^1.0.12",
         "gulp": "^5.0.1",
-        "mapshaper": "^0.4.113",
+        "mapshaper": "^0.6.44",
         "minifier": "^0.8.1",
         "require-dir": "^1.2.0"
     },
