@@ -199,7 +199,10 @@ def decomporess_geojson():
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.geojson"))
         for src_file, cname, pname in all_files:
-            _dest_file = os.path.join(_dest_folder, "%s_%s.geojson" % (pfolder, pname))
+            if pfolder == "zhi2_xia2_shi4":
+                _dest_file = os.path.join(_dest_folder, "%s.geojson" % (pname))
+            else:
+                _dest_file = os.path.join(_dest_folder, "%s_%s.geojson" % (pfolder, pname))
             if not DRY_RUN:
                 log("copy: %s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 shutil.copy(src_file, _dest_file)
