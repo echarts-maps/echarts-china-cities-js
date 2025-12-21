@@ -1,6 +1,6 @@
 {
     "name": "echarts-china-cities-js",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Packages all js based geojson of all Chinese cities for echarts",
     "main": "dist/index.js",
     "scripts": {
@@ -16,7 +16,7 @@
     "author": "C. W. <wangc_2011@hotmail.com> (https://github.com/chfw)",
     "license": "MIT",
     "devDependencies": {
-        "echarts": "^6.0.0",
+        "echarts": "4.0.3",
         "echarts-mapmaker": "^1.0.12",
         "gulp": "^5.0.1",
         "mapshaper": "^0.6.44",

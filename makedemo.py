@@ -16,7 +16,7 @@ REGISTRY_FILE = "registry.json"
 
 MANUAL_FIX = {"莆田": "pu3_tian2"}
 CONTOUR = "轮廓"
-DRY_RUN = True
+DRY_RUN = False
 
 
 def list_base(src_folder):
