@@ -18,7 +18,7 @@
     "devDependencies": {
         "echarts": "^4.0.2",
         "echarts-mapmaker": "^1.0.12",
-        "gulp": "^3.9.1",
+        "gulp": "^5.0.1",
         "mapshaper": "^0.4.113",
         "minifier": "^0.8.1",
         "require-dir": "^1.2.0"
