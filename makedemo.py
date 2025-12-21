@@ -130,10 +130,7 @@ def minify_srcs():
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.js"))
         for src_file, cname, pname in all_files:
-            if pfolder == "zhi2_xia2_shi4":
-                _dest_file = os.path.join(_dest_folder, "%s.js" % (pname))
-            else:
-                _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
+            _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
             if not DRY_RUN:
                 log("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 minify_js(src_file, _dest_file)
@@ -152,10 +149,7 @@ def minify_geojson():
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.geojson"))
         for src_file, cname, pname in all_files:
-            if pfolder == "zhi2_xia2_shi4":
-                _dest_file = os.path.join(_dest_folder, "%s.js" % (pname))
-            else:
-                _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
+            _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
             if not DRY_RUN:
                 log("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 make_js(src_file, "tw_tmp.js", cname)
@@ -175,12 +169,9 @@ def decomporess():
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.js"))
         for src_file, cname, pname in all_files:
-            if pfolder == "zhi2_xia2_shi4":
-                _dest_file = os.path.join(_dest_folder, "%s.geojson" % (pname))
-            else:
-                _dest_file = os.path.join(
-                    _dest_folder, "%s_%s.geojson" % (pfolder, pname)
-                )
+            _dest_file = os.path.join(
+                _dest_folder, "%s_%s.geojson" % (pfolder, pname)
+            )
             if not DRY_RUN:
                 log("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 decompress_js(src_file, _dest_file)
@@ -199,10 +190,7 @@ def decomporess_geojson():
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.geojson"))
         for src_file, cname, pname in all_files:
-            if pfolder == "zhi2_xia2_shi4":
-                _dest_file = os.path.join(_dest_folder, "%s.geojson" % (pname))
-            else:
-                _dest_file = os.path.join(_dest_folder, "%s_%s.geojson" % (pfolder, pname))
+            _dest_file = os.path.join(_dest_folder, "%s_%s.geojson" % (pfolder, pname))
             if not DRY_RUN:
                 log("copy: %s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 shutil.copy(src_file, _dest_file)
