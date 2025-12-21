@@ -17,6 +17,20 @@ REGISTRY_FILE = "registry.json"
 MANUAL_FIX = {"莆田": "pu3_tian2"}
 CONTOUR = "轮廓"
 DRY_RUN = False
+CUSTOM_PINYIN = {
+    "北京": "beijing",
+    "澳门": "aomen",
+    "重庆": "chongqing",
+    "上海": "shanghai",
+    "天津": "tianjin",
+    "香港": "xianggang",
+}
+
+
+def get_pinyin(place):
+    if place in CUSTOM_PINYIN:
+        return CUSTOM_PINYIN[place]
+    return pinyin.get(place, format="numerical", delimiter="_")
 
 
 def list_base(src_folder):
@@ -33,7 +47,7 @@ def list_a_directory(src_folder):
         if file_name in MANUAL_FIX:
             pinyin_name = MANUAL_FIX[file_name]
         else:
-            pinyin_name = pinyin.get(file_name, format="numerical", delimiter="_")
+            pinyin_name = get_pinyin(file_name)
         yield f, file_name, pinyin_name
 
 
@@ -107,14 +121,17 @@ def minify_srcs():
     name_dict, raw_rendering_dict = {}, defaultdict(list)
     for folder in list_base("src/*"):
         cfolder = os.path.basename(folder)
-        pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
+        pfolder = get_pinyin(cfolder)
         _dest_folder = DEST_FOLDER
         name_dict[cfolder] = pfolder
         if not os.path.exists(_dest_folder) and not DRY_RUN:
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.js"))
         for src_file, cname, pname in all_files:
-            _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
+            if pfolder == "zhi2_xia2_shi4":
+                _dest_file = os.path.join(_dest_folder, "%s.js" % (pname))
+            else:
+                _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
             if not DRY_RUN:
                 print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 minify_js(src_file, _dest_file)
@@ -126,14 +143,17 @@ def minify_geojson():
     name_dict, raw_rendering_dict = {}, defaultdict(list)
     for folder in list_base("src/*"):
         cfolder = os.path.basename(folder)
-        pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
+        pfolder = get_pinyin(cfolder)
         _dest_folder = DEST_FOLDER
         name_dict[cfolder] = pfolder
         if not os.path.exists(_dest_folder) and not DRY_RUN:
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.geojson"))
         for src_file, cname, pname in all_files:
-            _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
+            if pfolder == "zhi2_xia2_shi4":
+                _dest_file = os.path.join(_dest_folder, "%s.js" % (pname))
+            else:
+                _dest_file = os.path.join(_dest_folder, "%s_%s.js" % (pfolder, pname))
             if not DRY_RUN:
                 print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 make_js(src_file, "tw_tmp.js", cname)
@@ -146,14 +166,19 @@ def decomporess():
     name_dict, raw_rendering_dict = {}, defaultdict(list)
     for folder in list_base("src/*"):
         cfolder = os.path.basename(folder)
-        pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
+        pfolder = get_pinyin(cfolder)
         _dest_folder = DEST_GEOJSON_FOLDER
         name_dict[cfolder] = pfolder
         if not os.path.exists(_dest_folder) and not DRY_RUN:
             os.mkdir(_dest_folder)
         all_files = list_a_directory(os.path.join(folder, "*.js"))
         for src_file, cname, pname in all_files:
-            _dest_file = os.path.join(_dest_folder, "%s_%s.geojson" % (pfolder, pname))
+            if pfolder == "zhi2_xia2_shi4":
+                _dest_file = os.path.join(_dest_folder, "%s.geojson" % (pname))
+            else:
+                _dest_file = os.path.join(
+                    _dest_folder, "%s_%s.geojson" % (pfolder, pname)
+                )
             if not DRY_RUN:
                 print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
                 decompress_js(src_file, _dest_file)
@@ -165,7 +190,7 @@ def decomporess_geojson():
     name_dict, raw_rendering_dict = {}, defaultdict(list)
     for folder in list_base("src/*"):
         cfolder = os.path.basename(folder)
-        pfolder = pinyin.get(cfolder, format="numerical", delimiter="_")
+        pfolder = get_pinyin(cfolder)
         _dest_folder = DEST_GEOJSON_FOLDER
         name_dict[cfolder] = pfolder
         if not os.path.exists(_dest_folder) and not DRY_RUN:
@@ -251,46 +276,10 @@ def doall():
     geojson_dict.update(geojson_dict2)
     geojson_rendering_dict.update(geojson_rendering_dict2)
 
-    # adding direct cities
-    cnames = ["北京", "澳门", "重庆", "上海", "天津", "香港"]
-    cities = ["beijing", "aomen", "chongqing", "shanghai", "tianjin", "xianggang"]
-    compressed_cities = [
-        "重庆",
-        "上海",
-    ]
-    for cname, pname in zip(cnames, cities):
-        src_file = os.path.join(
-            "node_modules", "echarts", "map", "js", "province", "%s.js" % pname
-        )
-        _dest_file = os.path.join(DEST_FOLDER, "%s.js" % pname)
-        raw_rendering_dict["直辖市"].append((cname, pname))
-        geojson_rendering_dict["直辖市"].append((cname, pname))
-        if DRY_RUN:
-            continue
-        if cname in compressed_cities:
-            shutil.copy(src_file, _dest_file)
-            print("copy: %s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
-            geojson_src = os.path.join(
-                "node_modules", "echarts", "map", "json", "province", "%s.json" % pname
-            )
-
-            _geojson_file = os.path.join(DEST_GEOJSON_FOLDER, "%s.geojson" % pname)
-            shutil.copy(geojson_src, _geojson_file)
-            print(
-                "copy: %s-> %s, %s -> %s" % (cname, pname, geojson_src, _geojson_file)
-            )
-        else:
-            minify_js(src_file, _dest_file)
-            print("%s-> %s, %s -> %s" % (cname, pname, src_file, _dest_file))
-            _geojson_file = os.path.join(DEST_GEOJSON_FOLDER, "%s.geojson" % pname)
-            decompress_js(src_file, _geojson_file)
-            print("%s-> %s, %s -> %s" % (cname, pname, src_file, _geojson_file))
     # statistics
     count = 0
     rendering_dict = OrderedDict()
-    sorted_provinces = sorted(
-        raw_rendering_dict.keys(), key=lambda x: pinyin.get(x, format="numerical")
-    )
+    sorted_provinces = sorted(raw_rendering_dict.keys(), key=lambda x: get_pinyin(x))
     for cprovince in sorted_provinces:
         count += len(raw_rendering_dict[cprovince])
         rendering_dict[cprovince] = sorted(
@@ -309,7 +298,8 @@ def doall():
     with codecs.open("structure.json", "wb", "utf-8") as f:
         json.dump(external, f)
 
+    remove_internal_borders()
+
 
 if __name__ == "__main__":
     doall()
-    remove_internal_borders()
