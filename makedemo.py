@@ -10,13 +10,13 @@ import codecs
 from collections import OrderedDict
 import shutil
 
+DRY_RUN = False
+
 DEST_FOLDER = os.path.join("js", "shape-with-internal-borders")
 DEST_GEOJSON_FOLDER = os.path.join("geojson", "shape-with-internal-borders")
 REGISTRY_FILE = "registry.json"
-
 MANUAL_FIX = {"莆田": "pu3_tian2"}
 CONTOUR = "轮廓"
-DRY_RUN = False
 CUSTOM_PINYIN = {
     "北京": "beijing",
     "澳门": "aomen",
