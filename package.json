@@ -16,7 +16,6 @@
     "author": "C. W. <wangc_2011@hotmail.com> (https://github.com/chfw)",
     "license": "MIT",
     "devDependencies": {
-        "echarts": "4.0.3",
         "echarts-mapmaker": "^1.1.0",
         "gulp": "^5.0.1",
         "mapshaper": "^0.6.44",
