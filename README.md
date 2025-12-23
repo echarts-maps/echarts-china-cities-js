@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/echarts-maps/echarts-china-cities-js.svg?branch=master)](https://travis-ci.org/echarts-maps/echarts-china-cities-js) [![npm version](https://badge.fury.io/js/echarts-china-cities-js.svg)](https://badge.fury.io/js/echarts-china-cities-js)
 
-It collects all geo-jsons in javascript of all 393 provincial cities
+It collects all geo-jsons in javascript of all 392 provincial cities
 in 29 provinces and acts as a static asset to jupyter-echarts or your
 echarts collection.
 
@@ -116,7 +116,7 @@ Cities:
 28. **浙江**:
 [杭州](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江hang2_zhou1), [湖州](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江hu2_zhou1), [嘉兴](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江jia1_xing1), [金华](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江jin1_hua2), [丽水](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江li4_shui3), [宁波](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江ning2_bo1), [衢州](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江qu2_zhou1), [绍兴](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江shao4_xing1), [台州](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江tai2_zhou1), [温州](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江wen1_zhou1), [舟山](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#浙江zhou1_shan1)
 29. **直辖市**:
-[澳门](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市aomen), [北京](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市beijing), [重庆](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市chongqing), [上海](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市shanghai), [tianjin](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市t_i_a_n_j_i_n), [天津](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市tianjin), [香港](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市xianggang)
+[澳门](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市aomen), [北京](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市beijing), [重庆](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市chongqing), [上海](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市shanghai), [天津](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市tianjin), [香港](https://echarts-maps.github.io/echarts-china-cities-js/shape-with-internal-borders.html#直辖市xianggang)
 
 ## Development
 
