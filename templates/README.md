@@ -75,8 +75,8 @@ Please use python
 ```shell
 $ pip install -r requirements
 $ npm install
-$ gulp
 $ python makedemo.py
+$ gulp
 ```
 
 ## data flow
