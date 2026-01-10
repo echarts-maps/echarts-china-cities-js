@@ -13,7 +13,7 @@ echarts collection.
 ## Feature highlights
 
 1. City shape with and without internal borders
-1. City shape in js and json formats.
+1. City shape in js and geojson formats.
 
 
 ## Installation
